@@ -1,604 +1,357 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="robots" content="noindex, nofollow">
-<title>アンケート | 農大一中一高 第2回同窓会</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  /* ===== SITE-WIDE BASE (from index.html) ===== */
-  :root{
-    --bg-primary:#12121a;--bg-secondary:#1a1a25;--bg-card:#1e1e2a;--bg-card-hover:#24243a;
-    --bg-overlay:rgba(18,18,26,0.97);
-    --text-primary:#eae7e0;--text-secondary:#a09b92;--text-muted:#6b6760;
-    --accent-gold:#c9a84c;--accent-gold-light:#dfc06a;
-    --coral:#d25a32;
-    --border-subtle:rgba(201,168,76,0.15);--border-active:rgba(201,168,76,0.5);
-    --font-display:'Cormorant Garamond','Noto Serif JP',serif;
-    --font-body:'Noto Sans JP',sans-serif;
-    --font-serif:'Noto Serif JP',serif;
-    --header-height:64px;
-    --ease-out-expo:cubic-bezier(0.16,1,0.3,1);
-  }
-  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth;font-size:16px}
-  body{
-    font-family:var(--font-body);font-weight:300;color:var(--text-primary);
-    background:var(--bg-primary);line-height:1.8;letter-spacing:.02em;
-    overflow-x:hidden;-webkit-font-smoothing:antialiased;
-  }
-  a{color:inherit;text-decoration:none}
-  body.nav-open{overflow:hidden}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>長田頭取の野望 | 第2回同窓会</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary:#12121a;--bg-secondary:#1a1a25;--bg-card:#1e1e2a;
+      --bg-overlay:rgba(18,18,26,0.97);
+      --text-primary:#eae7e0;--text-secondary:#a09b92;--text-muted:#6b6760;
+      --accent-gold:#c9a84c;--accent-gold-light:#dfc06a;
+      --accent-coral:#d25a32;
+      --border-subtle:rgba(201,168,76,0.15);
+      --tint-coral:rgba(210,90,50,0.06);--tint-amber:rgba(201,168,76,0.06);
+      --tint-purple:rgba(140,90,200,0.06);--tint-teal:rgba(50,180,140,0.06);
+      --font-display:'Cormorant Garamond','Noto Serif JP',serif;
+      --font-body:'Noto Sans JP',sans-serif;--font-serif:'Noto Serif JP',serif;
+      --space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:4rem;--space-xl:6rem;
+      --container-max:960px;--header-height:64px;
+      --sticky-bar-height:48px;
+      --ease-out-expo:cubic-bezier(0.16,1,0.3,1);
+      --ease-out-quart:cubic-bezier(0.25,1,0.5,1);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);font-weight:300;color:var(--text-primary);background:var(--bg-primary);background-image:radial-gradient(ellipse 80% 60% at 30% 20%,rgba(210,90,50,0.03) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 80% 70%,rgba(201,168,76,0.03) 0%,transparent 60%);background-attachment:fixed;line-height:1.8;letter-spacing:.02em;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}img{max-width:100%;height:auto;display:block}
+    .container{width:100%;max-width:var(--container-max);margin:0 auto;padding:0 var(--space-md)}
 
-  /* ===== HEADER ===== */
-  .site-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--header-height);background:rgba(18,18,26,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border-subtle);transition:background .4s ease}
-  .header-inner{max-width:960px;margin:0 auto;padding:0 2rem;height:100%;display:flex;align-items:center;justify-content:space-between}
-  .header-logo{display:flex;flex-direction:column;line-height:1.2}
-  .logo-sub{font-family:var(--font-body);font-size:.6rem;font-weight:400;letter-spacing:.15em;color:var(--accent-gold)}
-  .logo-main{font-family:var(--font-serif);font-size:1rem;font-weight:600;letter-spacing:.08em;color:var(--text-primary)}
-  .hamburger{position:relative;z-index:1100;width:32px;height:24px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;padding:0}
-  .hamburger-line{display:block;width:100%;height:1.5px;background:var(--text-primary);transition:all .4s var(--ease-out-expo);transform-origin:center}
-  .hamburger.is-active .hamburger-line:nth-child(1){transform:translateY(11.25px) rotate(45deg)}
-  .hamburger.is-active .hamburger-line:nth-child(2){opacity:0;transform:scaleX(0)}
-  .hamburger.is-active .hamburger-line:nth-child(3){transform:translateY(-11.25px) rotate(-45deg)}
+    /* Header */
+    .site-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--header-height);background:rgba(18,18,26,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border-subtle);transition:background .4s ease}
+    .header-inner{max-width:var(--container-max);margin:0 auto;padding:0 var(--space-md);height:100%;display:flex;align-items:center;justify-content:space-between}
+    .header-logo{display:flex;flex-direction:column;line-height:1.2}
+    .logo-sub{font-family:var(--font-body);font-size:.6rem;font-weight:400;letter-spacing:.15em;color:var(--accent-gold)}
+    .logo-main{font-family:var(--font-serif);font-size:1rem;font-weight:600;letter-spacing:.08em;color:var(--text-primary)}
+    .hamburger{position:relative;z-index:1100;width:32px;height:24px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;padding:0}
+    .hamburger-line{display:block;width:100%;height:1.5px;background:var(--text-primary);transition:all .4s var(--ease-out-expo);transform-origin:center}
+    .hamburger.is-active .hamburger-line:nth-child(1){transform:translateY(11.25px) rotate(45deg)}
+    .hamburger.is-active .hamburger-line:nth-child(2){opacity:0;transform:scaleX(0)}
+    .hamburger.is-active .hamburger-line:nth-child(3){transform:translateY(-11.25px) rotate(-45deg)}
 
-  /* ===== NAV OVERLAY ===== */
-  .nav-overlay{position:fixed;inset:0;z-index:1050;background:var(--bg-overlay);opacity:0;visibility:hidden;transition:opacity .5s var(--ease-out-expo),visibility .5s;overflow-y:auto;-webkit-overflow-scrolling:touch}
-  .nav-overlay.is-open{opacity:1;visibility:visible}
-  .nav-overlay-inner{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--header-height) + 4rem) 2rem 4rem;max-width:480px;margin:0 auto}
-  .nav-section{padding:1rem 0;border-bottom:1px solid var(--border-subtle)}.nav-section:last-of-type{border-bottom:none}
-  .nav-label{display:block;font-family:var(--font-serif);font-size:.75rem;font-weight:500;color:var(--accent-gold);letter-spacing:.12em;padding-bottom:.5rem;margin-bottom:.5rem}
-  .nav-link{display:block;font-family:var(--font-display);font-size:1.5rem;font-weight:400;color:var(--text-primary);padding:.4rem 0;transition:color .3s ease,transform .3s var(--ease-out-expo)}
-  .nav-link:hover{color:var(--accent-gold);transform:translateX(8px)}
-  .nav-link--active{color:var(--accent-gold)}
-  .nav-link--sub{font-size:1.1rem;color:var(--text-secondary);padding-left:1.2rem;position:relative}
-  .nav-link--sub::before{content:'';position:absolute;left:0;top:50%;width:12px;height:1px;background:var(--border-subtle)}
-  .nav-link--sub:hover{color:var(--accent-gold-light)}
-  .nav-footer{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border-subtle)}
-  .nav-contact{font-size:.85rem;color:var(--accent-gold);letter-spacing:.08em;transition:opacity .3s ease}
-  .nav-contact:hover{opacity:.7}
+    /* Nav */
+    .nav-overlay{position:fixed;inset:0;z-index:1050;background:var(--bg-overlay);opacity:0;visibility:hidden;transition:opacity .5s var(--ease-out-expo),visibility .5s;overflow-y:auto;-webkit-overflow-scrolling:touch}
+    .nav-overlay.is-open{opacity:1;visibility:visible}
+    .nav-overlay-inner{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--header-height) + var(--space-lg)) var(--space-md) var(--space-lg);max-width:480px;margin:0 auto}
+    .nav-section{padding:var(--space-sm) 0;border-bottom:1px solid var(--border-subtle)}.nav-section:last-of-type{border-bottom:none}
+    .nav-label{display:block;font-family:var(--font-serif);font-size:.75rem;font-weight:500;color:var(--accent-gold);letter-spacing:.12em;padding-bottom:var(--space-xs);margin-bottom:var(--space-xs)}
+    .nav-link{display:block;font-family:var(--font-display);font-size:1.5rem;font-weight:400;color:var(--text-primary);padding:.4rem 0;transition:color .3s ease,transform .3s var(--ease-out-expo)}
+    .nav-link:hover{color:var(--accent-gold);transform:translateX(8px)}
+    .nav-link--active{color:var(--accent-gold)}
+    .nav-link--sub{font-size:1.1rem;color:var(--text-secondary);padding-left:1.2rem;position:relative}
+    .nav-link--sub::before{content:'';position:absolute;left:0;top:50%;width:12px;height:1px;background:var(--border-subtle)}
+    .nav-link--sub:hover{color:var(--accent-gold-light)}
+    .nav-footer{margin-top:var(--space-lg);padding-top:var(--space-md);border-top:1px solid var(--border-subtle)}
+    .nav-contact{font-size:.85rem;color:var(--accent-gold);letter-spacing:.08em;transition:opacity .3s ease}.nav-contact:hover{opacity:.7}
 
-  /* ===== FOOTER ===== */
-  .site-footer{padding:2rem 0;border-top:1px solid var(--border-subtle);text-align:center}
-  .footer-contact{display:inline-block;font-size:.8rem;color:var(--accent-gold);letter-spacing:.1em;border:1px solid var(--border-subtle);padding:.5rem 1.5rem;transition:all .3s ease}
-  .footer-contact:hover{border-color:var(--accent-gold)}
+    /* Sticky bar — single button */
+    .sticky-bar{
+      position:fixed;top:var(--header-height);left:0;right:0;z-index:999;
+      height:var(--sticky-bar-height);
+      background:rgba(18,18,26,0.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--border-subtle);
+      display:flex;align-items:center;justify-content:center;padding:0 var(--space-sm);
+    }
+    .sticky-btn{
+      display:flex;align-items:center;gap:.4rem;
+      font-family:var(--font-body);font-size:.75rem;font-weight:400;
+      letter-spacing:.06em;color:var(--accent-gold);
+      background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);
+      border-radius:20px;padding:.4rem 1.2rem;
+      transition:all .3s ease;white-space:nowrap;
+    }
+    .sticky-btn:hover{background:rgba(201,168,76,0.18);border-color:rgba(201,168,76,0.35)}
+    .sticky-dot{width:6px;height:6px;border-radius:50%;background:var(--accent-gold);animation:dotPulse 2s ease-in-out infinite}
+    @keyframes dotPulse{0%,100%{opacity:1}50%{opacity:.4}}
 
-  /* ===== SURVEY-SPECIFIC ===== */
-  .survey-container{
-    max-width:600px;
-    margin:0 auto;
-    padding:24px 20px 60px;
-  }
-  .survey-main{
-    padding-top:var(--header-height);
-  }
+    /* Page Hero */
+    .page-hero{position:relative;padding-top:calc(var(--header-height) + var(--sticky-bar-height) + var(--space-xl));padding-bottom:var(--space-xl);overflow:hidden}
+    .page-hero-bg{position:absolute;inset:0;background-image:url('images/nagata.png');background-size:cover;background-position:center}
+    .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,26,.5) 0%,rgba(18,18,26,.9) 100%)}
+    .page-hero-content{position:relative;z-index:1;text-align:center}
+    .page-hero-title{font-family:var(--font-display);font-size:clamp(1.8rem,5vw,2.8rem);font-weight:700;color:var(--text-primary);letter-spacing:.08em;margin-bottom:var(--space-xs)}
+    .page-hero-sub{font-family:var(--font-serif);font-size:clamp(.8rem,2vw,.95rem);color:var(--accent-gold);letter-spacing:.06em}
 
-  /* HERO */
-  .survey-hero{
-    text-align:center;
-    padding:48px 0 32px;
-    position:relative;
-  }
-  .survey-hero::after{
-    content:'';display:block;width:60px;height:1px;
-    background:var(--accent-gold);margin:28px auto 0;
-  }
-  .survey-hero-label{
-    font-family:var(--font-display);font-size:.85rem;letter-spacing:.15em;
-    color:var(--accent-gold);text-transform:uppercase;margin-bottom:8px;
-  }
-  .survey-hero-title{
-    font-family:var(--font-serif);font-size:1.5rem;font-weight:600;
-    color:var(--text-primary);line-height:1.5;
-  }
+    /* Section */
+    .section{padding:var(--space-xl) 0}
+    .section-label{font-family:var(--font-display);font-size:.7rem;font-weight:600;letter-spacing:.25em;color:var(--accent-gold);text-transform:uppercase;margin-bottom:var(--space-xs)}
+    .section-title{font-family:var(--font-serif);font-size:clamp(1.3rem,3.5vw,1.8rem);font-weight:600;color:var(--text-primary);letter-spacing:.05em;margin-bottom:var(--space-md)}
 
-  /* MESSAGE */
-  .organizer-message{
-    background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;
-    padding:24px 20px;margin:28px 0 36px;position:relative;
-  }
-  .organizer-message::before{
-    content:'\201C';font-family:var(--font-display);font-size:3.5rem;
-    color:var(--accent-gold);opacity:.4;position:absolute;top:8px;left:16px;line-height:1;
-  }
-  .message-label{
-    font-family:var(--font-serif);font-size:.8rem;color:var(--accent-gold);
-    letter-spacing:.1em;margin-bottom:12px;padding-left:28px;
-  }
-  .message-text{font-size:.88rem;color:var(--text-secondary);line-height:2}
-  .message-text p+p{margin-top:12px}
-  .message-thanks{
-    font-family:var(--font-serif);color:var(--accent-gold-light);
-    font-size:.95rem;margin-top:16px;text-align:right;
-  }
+    /* Overview cards */
+    .overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-sm)}
+    .overview-card{background:var(--bg-card);border:1px solid rgba(201,168,76,.06);border-radius:8px;padding:1.4rem;text-align:center;transition:border-color .3s ease}
+    .overview-card:hover{border-color:var(--border-subtle)}
+    .overview-card-icon{font-size:1.8rem;margin-bottom:.6rem;display:block;line-height:1}
+    .overview-card-value{font-family:var(--font-serif);font-size:1.3rem;font-weight:600;color:var(--text-primary);margin-bottom:.2rem}
+    .overview-card-label{font-size:.75rem;color:var(--text-secondary)}
 
-  /* SECTIONS */
-  .q-section{
-    margin-bottom:32px;
-    opacity:0;transform:translateY(16px);
-    animation:fadeUp .5s ease forwards;
-  }
-  .q-section:nth-child(2){animation-delay:.05s}
-  .q-section:nth-child(3){animation-delay:.1s}
-  .q-section:nth-child(4){animation-delay:.15s}
-  .q-section:nth-child(5){animation-delay:.2s}
-  .q-section:nth-child(6){animation-delay:.25s}
-  .q-section:nth-child(7){animation-delay:.3s}
-  .q-section:nth-child(8){animation-delay:.35s}
-  .q-section:nth-child(9){animation-delay:.4s}
+    /* Flow */
+    .flow-steps{display:flex;flex-direction:column;gap:var(--space-sm)}
+    .flow-step{display:flex;gap:1rem;align-items:flex-start;background:var(--bg-card);border:1px solid rgba(201,168,76,.06);border-radius:8px;padding:1.2rem;transition:border-color .3s ease}
+    .flow-step:hover{border-color:var(--border-subtle)}
+    .flow-num{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--accent-gold);opacity:.6;min-width:2rem;text-align:center;line-height:1.2;padding-top:.2rem}
+    .flow-content{flex:1}
+    .flow-title{font-family:var(--font-serif);font-size:.95rem;font-weight:600;color:var(--text-primary);margin-bottom:.2rem}
+    .flow-desc{font-size:.8rem;color:var(--text-secondary);line-height:1.6}
 
-  @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+    /* Bet table */
+    .bet-table{width:100%;border-collapse:collapse;margin-top:var(--space-sm);font-size:.8rem}
+    .bet-table th{font-family:var(--font-serif);font-size:.75rem;font-weight:500;color:var(--accent-gold);text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--border-subtle);letter-spacing:.05em}
+    .bet-table td{padding:.6rem .8rem;color:var(--text-secondary);border-bottom:1px solid rgba(201,168,76,.04)}
+    .bet-table tr:last-child td{border-bottom:none}
 
-  .q-number{font-family:var(--font-display);font-size:.75rem;color:var(--accent-gold);letter-spacing:.1em;margin-bottom:4px}
-  .q-title{font-family:var(--font-serif);font-size:1.05rem;font-weight:600;color:var(--text-primary);margin-bottom:4px}
-  .q-desc{font-size:.8rem;color:var(--text-muted);margin-bottom:16px;line-height:1.8}
+    /* Special card */
+    .special-card{background:linear-gradient(135deg,var(--tint-amber),var(--bg-card) 60%);border:1px solid rgba(201,168,76,.12);border-left:3px solid var(--accent-gold);border-radius:0 8px 8px 0;padding:1.4rem 1.6rem;margin-top:var(--space-md)}
+    .special-card-title{font-family:var(--font-serif);font-size:1rem;font-weight:600;color:var(--accent-gold);margin-bottom:.4rem}
+    .special-card-body{font-size:.8rem;color:var(--text-secondary);line-height:1.7}
+    .special-card-body p{margin-bottom:.3rem}
+    .special-card-note{font-size:.75rem;color:var(--accent-coral);margin-top:.5rem}
 
-  /* INPUT */
-  .input-text{
-    width:100%;background:var(--bg-primary);border:1px solid var(--border-subtle);
-    border-radius:8px;padding:12px 16px;font-family:var(--font-body);
-    font-size:.95rem;font-weight:300;color:var(--text-primary);outline:none;
-    transition:border-color .25s;
-  }
-  .input-text:focus{border-color:var(--border-active)}
-  .input-text::placeholder{color:var(--text-muted)}
+    /* Turn cards (accordion) */
+    .turns-grid{display:flex;flex-direction:column;gap:var(--space-sm)}
+    .turn-card{background:var(--bg-card);border:1px solid rgba(201,168,76,.06);border-radius:8px;overflow:hidden;transition:border-color .3s ease}
+    .turn-card:hover{border-color:var(--border-subtle)}
+    .turn-header{display:flex;align-items:center;gap:.8rem;padding:1rem 1.2rem;cursor:pointer;user-select:none}
+    .turn-badge{font-family:var(--font-display);font-size:.65rem;font-weight:600;letter-spacing:.1em;color:var(--accent-gold);background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.15);padding:.2rem .6rem;border-radius:20px;white-space:nowrap}
+    .turn-name{font-family:var(--font-serif);font-size:1rem;font-weight:600;color:var(--text-primary);flex:1}
+    .turn-toggle{font-size:.8rem;color:var(--text-muted);transition:transform .3s var(--ease-out-expo)}
+    .turn-card.is-open .turn-toggle{transform:rotate(180deg)}
+    .turn-detail{max-height:0;overflow:hidden;transition:max-height .4s var(--ease-out-expo)}
+    .turn-card.is-open .turn-detail{max-height:600px}
+    .turn-detail-inner{padding:0 1.2rem 1.2rem;border-top:1px solid rgba(201,168,76,.06)}
+    .turn-detail-inner p{font-size:.8rem;color:var(--text-secondary);line-height:1.7;margin-top:.6rem}
+    .turn-detail-inner .detail-label{font-size:.7rem;font-weight:500;color:var(--accent-gold);letter-spacing:.05em;margin-top:.8rem;margin-bottom:.2rem}
 
-  /* STAR RATING */
-  .star-rating{display:flex;gap:6px;flex-direction:row-reverse;justify-content:flex-end}
-  .star-rating input{display:none}
-  .star-rating label{
-    font-size:2rem;color:var(--text-muted);cursor:pointer;
-    transition:color .15s,transform .15s;line-height:1;user-select:none;
-    -webkit-tap-highlight-color:transparent;
-  }
-  .star-rating label:active{transform:scale(1.2)}
-  .star-rating input:checked ~ label{color:var(--accent-gold)}
-  .star-rating label:hover,.star-rating label:hover ~ label{color:var(--accent-gold-light)}
-  .star-labels{display:flex;justify-content:space-between;margin-top:6px;font-size:.7rem;color:var(--text-muted);padding:0 2px}
+    /* Events */
+    .events-list{display:flex;flex-direction:column;gap:var(--space-sm)}
+    .event-card{padding:1.2rem;border-radius:8px;border:1px solid rgba(201,168,76,.06);transition:border-color .3s ease}
+    .event-card:hover{border-color:var(--border-subtle)}
+    .event-card--bonus{background:linear-gradient(135deg,var(--tint-teal),var(--bg-card) 60%);border-left:3px solid #32b48c}
+    .event-card--penalty{background:linear-gradient(135deg,var(--tint-coral),var(--bg-card) 60%);border-left:3px solid var(--accent-coral)}
+    .event-card--mercy{background:linear-gradient(135deg,var(--tint-purple),var(--bg-card) 60%);border-left:3px solid #8c5ac8}
+    .event-name{font-family:var(--font-serif);font-size:.95rem;font-weight:600;color:var(--text-primary);margin-bottom:.3rem}
+    .event-desc{font-size:.8rem;color:var(--text-secondary);line-height:1.6}
 
-  /* RADIO */
-  .radio-group{display:flex;flex-direction:column;gap:8px}
-  .radio-option{
-    display:flex;align-items:center;gap:12px;background:var(--bg-primary);
-    border:1px solid var(--border-subtle);border-radius:8px;padding:14px 16px;
-    cursor:pointer;transition:border-color .25s,background .25s;
-    -webkit-tap-highlight-color:transparent;
-  }
-  .radio-option:active{background:var(--bg-card-hover)}
-  .radio-option.selected{border-color:var(--accent-gold);background:rgba(201,168,76,0.06)}
-  .radio-option input{display:none}
-  .radio-dot{
-    width:20px;height:20px;border-radius:50%;border:2px solid var(--text-muted);
-    position:relative;flex-shrink:0;transition:border-color .25s;
-  }
-  .radio-dot::after{
-    content:'';width:10px;height:10px;border-radius:50%;background:var(--accent-gold);
-    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);
-    transition:transform .2s ease;
-  }
-  .radio-option.selected .radio-dot{border-color:var(--accent-gold)}
-  .radio-option.selected .radio-dot::after{transform:translate(-50%,-50%) scale(1)}
-  .radio-label{font-size:.9rem;color:var(--text-primary);line-height:1.4}
+    /* Game link */
+    .game-link-section{text-align:center;padding:var(--space-lg) 0}
+    .game-link-btn{display:inline-block;font-family:var(--font-body);font-size:.9rem;font-weight:500;color:var(--bg-primary);background:var(--accent-gold);padding:1rem 3rem;border-radius:6px;letter-spacing:.1em;transition:all .3s}
+    .game-link-btn:hover{background:var(--accent-gold-light);box-shadow:0 8px 30px rgba(201,168,76,.2);transform:translateY(-2px)}
+    .game-link-note{font-size:.7rem;color:var(--text-muted);margin-top:.8rem}
 
-  /* TEXTAREA */
-  .textarea{
-    width:100%;min-height:100px;background:var(--bg-primary);
-    border:1px solid var(--border-subtle);border-radius:8px;padding:12px 16px;
-    font-family:var(--font-body);font-size:.9rem;font-weight:300;
-    color:var(--text-primary);outline:none;resize:vertical;
-    transition:border-color .25s;line-height:1.8;
-  }
-  .textarea:focus{border-color:var(--border-active)}
-  .textarea::placeholder{color:var(--text-muted)}
+    /* ===== Password Section ===== */
+    .pw-section{padding:var(--space-xl) 0;border-top:1px solid var(--border-subtle)}
+    .pw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+    .pw-item{background:var(--bg-card);border:1px solid rgba(201,168,76,.06);border-radius:8px;padding:.7rem .8rem;cursor:pointer;user-select:none;transition:all .3s ease;text-align:center}
+    .pw-item:hover{border-color:var(--border-subtle)}
+    .pw-item.is-revealed{border-color:rgba(201,168,76,.25);background:linear-gradient(135deg,rgba(201,168,76,.06),var(--bg-card) 60%)}
+    .pw-company{font-family:var(--font-serif);font-size:.85rem;font-weight:600;color:var(--text-primary)}
+    .pw-value{font-family:var(--font-body);font-size:.75rem;color:var(--accent-gold);margin-top:.2rem;min-height:1.2em;letter-spacing:.03em}
+    .pw-hint{font-size:.65rem;color:var(--text-muted);margin-top:.1rem}
 
-  /* SUBMIT */
-  .submit-btn{
-    display:block;width:100%;padding:16px;
-    background:linear-gradient(135deg,var(--accent-gold),var(--accent-gold-light));
-    border:none;border-radius:10px;font-family:var(--font-serif);
-    font-size:1.05rem;font-weight:600;color:var(--bg-primary);
-    cursor:pointer;transition:opacity .25s,transform .15s;margin-top:8px;
-    -webkit-tap-highlight-color:transparent;
-  }
-  .submit-btn:active{transform:scale(.98)}
-  .submit-btn.sending{pointer-events:none;opacity:.7}
+    /* Footer */
+    .site-footer{padding:var(--space-md) 0;border-top:1px solid var(--border-subtle);text-align:center}
+    .footer-contact{display:inline-block;font-size:.8rem;color:var(--accent-gold);letter-spacing:.1em;border:1px solid var(--border-subtle);padding:.5rem 1.5rem;transition:all .3s ease}
+    .footer-contact:hover{border-color:var(--accent-gold)}
 
-  /* DIVIDER */
-  .divider{height:1px;background:var(--border-subtle);margin:4px 0 32px}
+    /* Animations */
+    .fade-in{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease-out-quart),transform .8s var(--ease-out-quart)}
+    .fade-in.is-visible{opacity:1;transform:translateY(0)}
 
-  /* THANK YOU */
-  .thank-you{
-    display:none;text-align:center;
-    padding:80px 20px;position:relative;
-    animation:fadeUp .6s ease forwards;
-  }
-  .thank-you.show{display:block}
-  .thank-you-icon{font-size:3rem;margin-bottom:20px}
-  .thank-you h2{font-family:var(--font-serif);font-size:1.3rem;font-weight:600;margin-bottom:16px;color:var(--accent-gold-light)}
-  .thank-you p{font-size:.9rem;color:var(--text-secondary);line-height:2;max-width:440px;margin:0 auto}
-  .thank-you p+p{margin-top:16px}
-
-  /* BACK BUTTON (right-top in thank-you) */
-  .back-to-form{
-    position:absolute;top:16px;right:0;
-    font-family:var(--font-body);font-size:.78rem;font-weight:400;
-    color:var(--accent-gold);letter-spacing:.05em;
-    border:1px solid var(--border-subtle);border-radius:6px;
-    padding:8px 14px;transition:border-color .3s,opacity .3s;
-    text-decoration:none;
-  }
-  .back-to-form:hover{border-color:var(--accent-gold);opacity:.8}
-
-  .form-area.hidden{display:none}
-
-  /* VALIDATION */
-  .q-section.shake{animation:shake .4s ease}
-  @keyframes shake{
-    0%,100%{transform:translateX(0)}
-    20%,60%{transform:translateX(-6px)}
-    40%,80%{transform:translateX(6px)}
-  }
-  .q-section.highlight-required .q-title{color:var(--coral)}
-  .q-section.highlight-required .star-rating label{color:rgba(210,90,50,0.3)}
-
-  /* TOAST */
-  .toast{
-    position:fixed;bottom:24px;left:50%;
-    transform:translateX(-50%) translateY(80px);
-    background:var(--coral);color:#fff;padding:12px 24px;
-    border-radius:8px;font-size:.85rem;font-weight:400;
-    z-index:999;transition:transform .3s ease;
-    text-align:center;max-width:90vw;
-  }
-  .toast.show{transform:translateX(-50%) translateY(0)}
-
-  @media(max-width:768px){
-    :root{--header-height:56px}
-    .nav-link{font-size:1.3rem}
-    .nav-link--sub{font-size:1rem}
-  }
-  @media(max-width:480px){
-    .header-inner{padding:0 1rem}
-  }
-</style>
+    /* Responsive */
+    @media(max-width:768px){
+      :root{--header-height:56px}
+      .overview-grid{grid-template-columns:repeat(3,1fr)}
+      .pw-grid{grid-template-columns:repeat(3,1fr)}
+      .nav-link{font-size:1.3rem}.nav-link--sub{font-size:1rem}
+    }
+    @media(max-width:480px){
+      .container{padding:0 var(--space-sm)}
+      .overview-grid{gap:.5rem}
+      .overview-card{padding:.8rem}
+      .overview-card-value{font-size:1.1rem}
+      .pw-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    body.nav-open{overflow:hidden}
+  </style>
 </head>
 <body>
-
-<!-- ===== HEADER (共通) ===== -->
-<header class="site-header" id="siteHeader">
-  <div class="header-inner">
-    <a href="index.html" class="header-logo">
-      <span class="logo-sub">農大一中一高</span>
-      <span class="logo-main">第2回同窓会</span>
-    </a>
-    <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
-  </div>
-</header>
-
-<!-- ===== NAV OVERLAY (共通) ===== -->
-<nav class="nav-overlay" id="navOverlay" aria-hidden="true">
-  <div class="nav-overlay-inner">
-    <div class="nav-section"><a href="index.html" class="nav-link">ホーム</a></div>
-    <div class="nav-section"><a href="schedule.html" class="nav-link">Schedule</a></div>
-    <div class="nav-section">
-      <span class="nav-label">長田頭取の野望</span>
-      <a href="nagata-about.html" class="nav-link nav-link--sub">ゲーム概要</a>
-      <a href="https://script.google.com/macros/s/AKfycbw-4tpXD_Yo1F84Mic6r4Fgl0LugDLakLE9ZD6TGp5JXhSXUFFI2FsfcxO5L-hO_05Otw/exec" target="_blank" class="nav-link nav-link--sub">ゲーム画面</a>
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo"><span class="logo-sub">農大一中一高</span><span class="logo-main">第2回同窓会</span></a>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
     </div>
-    <div class="nav-section"><a href="food.html" class="nav-link">Food &amp; 懇親会</a></div>
-    <div class="nav-section"><a href="venue.html" class="nav-link">Venue</a></div>
-    <div class="nav-section"><a href="qa.html" class="nav-link">Q&amp;A</a></div>
-    <div class="nav-section"><a href="survey.html" class="nav-link nav-link--active">アンケート</a></div>
-    <div class="nav-footer">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScaZqsb8PmDiATXvJReIDPr34LZl4RQOk-msbUmN5az5Q-R_g/viewform" target="_blank" rel="noopener" class="nav-contact">お問い合わせ</a>
+  </header>
+
+  <!-- Sticky: single game link -->
+  <div class="sticky-bar">
+    <a href="https://script.google.com/macros/s/AKfycbw-4tpXD_Yo1F84Mic6r4Fgl0LugDLakLE9ZD6TGp5JXhSXUFFI2FsfcxO5L-hO_05Otw/exec" target="_blank" class="sticky-btn"><span class="sticky-dot"></span>ゲーム画面はこちら（投票・順位・結果）</a>
+  </div>
+
+  <nav class="nav-overlay" id="navOverlay" aria-hidden="true">
+    <div class="nav-overlay-inner">
+      <div class="nav-section"><a href="index.html" class="nav-link">ホーム</a></div>
+      <div class="nav-section"><a href="schedule.html" class="nav-link">Schedule</a></div>
+      <div class="nav-section">
+        <span class="nav-label">長田頭取の野望</span>
+        <a href="nagata-about.html" class="nav-link nav-link--sub nav-link--active">ゲーム概要</a>
+        <a href="https://script.google.com/macros/s/AKfycbw-4tpXD_Yo1F84Mic6r4Fgl0LugDLakLE9ZD6TGp5JXhSXUFFI2FsfcxO5L-hO_05Otw/exec" target="_blank" class="nav-link nav-link--sub">ゲーム画面</a>
+      </div>
+      <div class="nav-section"><a href="food.html" class="nav-link">Food &amp; 懇親会</a></div>
+      <div class="nav-section"><a href="venue.html" class="nav-link">Venue</a></div>
+      <div class="nav-section"><a href="qa.html" class="nav-link">Q&amp;A</a></div>
+      <div class="nav-footer"><a href="https://docs.google.com/forms/d/e/1FAIpQLScaZqsb8PmDiATXvJReIDPr34LZl4RQOk-msbUmN5az5Q-R_g/viewform" target="_blank" rel="noopener" class="nav-contact">お問い合わせ</a></div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- ===== MAIN ===== -->
-<main class="survey-main">
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content"><div class="container">
+      <h1 class="page-hero-title">長田頭取の野望</h1>
+      <p class="page-hero-sub">〜知耕実学でアグリを増やせ！サバイバル・クイズ〜</p>
+    </div></div>
+  </section>
 
-<!-- FORM AREA -->
-<div class="survey-container form-area" id="formArea">
-
-  <div class="survey-hero">
-    <div class="survey-hero-label">After Survey</div>
-    <h1 class="survey-hero-title">第2回同窓会<br>アフターアンケート</h1>
-  </div>
-
-  <div class="organizer-message">
-    <div class="message-label">企画者より</div>
-    <div class="message-text">
-      <p>「うちの同窓会、ちょっと面白いんだよ」と周りに誇れるような場にしたい——そんな思いで今回の同窓会を企画しました。</p>
-      <p>学校を会場にするという異例の形式、ただ飲み食いするだけじゃない仕掛け。皆さんから事前にいただいた声を一つひとつ形にすることが運営の仕事だと思い、走り続けてきました。</p>
-      <p>その思いが届いて、少しでも良い時間になっていれば幸いです。ぜひ率直なご感想をお聞かせください。</p>
-      <div class="message-thanks">本日はありがとうございました。</div>
+  <!-- Overview -->
+  <section class="section fade-in"><div class="container">
+    <p class="section-label">Overview</p>
+    <h2 class="section-title">ゲームの全体像</h2>
+    <div class="overview-grid">
+      <div class="overview-card"><span class="overview-card-icon" style="color:var(--accent-gold)">&#9813;</span><p class="overview-card-value">16社</p><p class="overview-card-label">参加チーム</p></div>
+      <div class="overview-card"><span class="overview-card-icon" style="color:var(--accent-coral)">&#9733;</span><p class="overview-card-value">全6ターン</p><p class="overview-card-label">クイズ×ギャンブル</p></div>
+      <div class="overview-card"><span class="overview-card-icon" style="color:#32b48c">&#9670;</span><p class="overview-card-value">500アグリ</p><p class="overview-card-label">初期資産</p></div>
     </div>
-  </div>
+  </div></section>
 
-  <div class="divider"></div>
-
-  <!-- NAME -->
-  <div class="q-section" id="sec-name">
-    <div class="q-number">—</div>
-    <div class="q-title">お名前</div>
-    <div class="q-desc">匿名でも回答できますが、極力ご記入いただけると嬉しいです。<br>批判的なコメントもより良くするために素直に受け止めますので、「無責任だな」とは思いません。遠慮なくお書きください。</div>
-    <input type="text" class="input-text" id="q-name" placeholder="山田 太郎">
-  </div>
-
-  <!-- Q1 -->
-  <div class="q-section" id="sec-q1">
-    <div class="q-number">Q1</div>
-    <div class="q-title">今回の同窓会全体の満足度</div>
-    <div class="star-rating">
-      <input type="radio" name="q1" id="q1-5" value="5"><label for="q1-5">★</label>
-      <input type="radio" name="q1" id="q1-4" value="4"><label for="q1-4">★</label>
-      <input type="radio" name="q1" id="q1-3" value="3"><label for="q1-3">★</label>
-      <input type="radio" name="q1" id="q1-2" value="2"><label for="q1-2">★</label>
-      <input type="radio" name="q1" id="q1-1" value="1"><label for="q1-1">★</label>
+  <!-- Flow -->
+  <section class="section fade-in"><div class="container">
+    <p class="section-label">How to Play</p>
+    <h2 class="section-title">ゲームの流れ</h2>
+    <div class="flow-steps">
+      <div class="flow-step"><span class="flow-num">1</span><div class="flow-content"><p class="flow-title">各班＝1つの会社。初期資産 500アグリ</p><p class="flow-desc">班のメンバーは「役員」として協力し、会社の資産を最大化します。</p></div></div>
+      <div class="flow-step"><span class="flow-num">2</span><div class="flow-content"><p class="flow-title">4名の挑戦者がクイズに挑戦</p><p class="flow-desc">各ターン、4名がステージで対決。皆さんは「誰が勝つか」にベット（投資）します。</p></div></div>
+      <div class="flow-step"><span class="flow-num">3</span><div class="flow-content"><p class="flow-title">的中で2倍、外れで全額没収</p><p class="flow-desc">投資した挑戦者が勝てば投資額の2倍を獲得。外れた場合は投資額をすべて失います。</p></div></div>
+      <div class="flow-step"><span class="flow-num">4</span><div class="flow-content"><p class="flow-title">途中イベントで資産が変動</p><p class="flow-desc">ターンの合間にサプライズイベントが発生し、資産が増減することがあります。</p></div></div>
+      <div class="flow-step"><span class="flow-num">5</span><div class="flow-content"><p class="flow-title">全6ターン終了時、最も資産が多い会社が優勝！</p><p class="flow-desc">最後まで何が起こるかわからない、逆転ありのサバイバルゲームです。</p></div></div>
     </div>
-    <div class="star-labels"><span>不満</span><span>大満足</span></div>
-  </div>
+  </div></section>
 
-  <!-- Q2 -->
-  <div class="q-section" id="sec-q2">
-    <div class="q-number">Q2</div>
-    <div class="q-title">「長田頭取の野望」の楽しさ</div>
-    <div class="star-rating">
-      <input type="radio" name="q2" id="q2-5" value="5"><label for="q2-5">★</label>
-      <input type="radio" name="q2" id="q2-4" value="4"><label for="q2-4">★</label>
-      <input type="radio" name="q2" id="q2-3" value="3"><label for="q2-3">★</label>
-      <input type="radio" name="q2" id="q2-2" value="2"><label for="q2-2">★</label>
-      <input type="radio" name="q2" id="q2-1" value="1"><label for="q2-1">★</label>
+  <!-- Betting -->
+  <section class="section fade-in"><div class="container">
+    <p class="section-label">Betting</p>
+    <h2 class="section-title">投資ルール</h2>
+    <table class="bet-table">
+      <thead><tr><th>ターン</th><th>最低</th><th>最大</th><th>備考</th></tr></thead>
+      <tbody>
+        <tr><td>T1〜T3</td><td>20</td><td>100</td><td>前半戦</td></tr>
+        <tr><td>T4〜T6</td><td>20</td><td>200</td><td>後半戦・上限UP</td></tr>
+      </tbody>
+    </table>
+    <div class="special-card">
+      <h3 class="special-card-title">頭取のコネ（スペシャルカード）</h3>
+      <div class="special-card-body">
+        <p>100アグリで購入可能（1社最大2枚）。使用ターンの倍率が2倍→3倍にアップ！</p>
+        <p>購入は各ターンのシンキングタイム中に、代表者が頭取席へ行き「○○社です、よしなに！」と口上して購入します。</p>
+        <p>購入したターンで即使用となります。</p>
+      </div>
+      <p class="special-card-note">※ 購入後に資産がゼロを下回る場合は購入できません。</p>
     </div>
-    <div class="star-labels"><span>つまらない</span><span>最高に楽しい</span></div>
-  </div>
+  </div></section>
 
-  <!-- Q3 -->
-  <div class="q-section" id="sec-q3">
-    <div class="q-number">Q3</div>
-    <div class="q-title">ルールのわかりやすさ</div>
-    <div class="star-rating">
-      <input type="radio" name="q3" id="q3-5" value="5"><label for="q3-5">★</label>
-      <input type="radio" name="q3" id="q3-4" value="4"><label for="q3-4">★</label>
-      <input type="radio" name="q3" id="q3-3" value="3"><label for="q3-3">★</label>
-      <input type="radio" name="q3" id="q3-2" value="2"><label for="q3-2">★</label>
-      <input type="radio" name="q3" id="q3-1" value="1"><label for="q3-1">★</label>
+  <!-- Turns -->
+  <section class="section fade-in"><div class="container">
+    <p class="section-label">Turns</p>
+    <h2 class="section-title">全6ターン</h2>
+    <div class="turns-grid">
+      <div class="turn-card" onclick="this.classList.toggle('is-open')"><div class="turn-header"><span class="turn-badge">T1</span><span class="turn-name">イントロクイズ（最新曲）</span><span class="turn-toggle">&#9660;</span></div><div class="turn-detail"><div class="turn-detail-inner"><p class="detail-label">形式</p><p>2問先取・早押し（挙手）</p><p class="detail-label">投資上限</p><p>100アグリ</p><p class="detail-label">内容</p><p>最新J-POP / TikTokトレンド曲のイントロを聴いて曲名を当てます。</p></div></div></div>
+      <div class="turn-card" onclick="this.classList.toggle('is-open')"><div class="turn-header"><span class="turn-badge">T2</span><span class="turn-name">画像クイズ</span><span class="turn-toggle">&#9660;</span></div><div class="turn-detail"><div class="turn-detail-inner"><p class="detail-label">形式</p><p>2問先取・早押し（挙手）</p><p class="detail-label">投資上限</p><p>100アグリ</p><p class="detail-label">内容</p><p>学内の施設・馴染みの食事など、モザイクが段階的に解除される画像を見て答えます。</p></div></div></div>
+      <div class="turn-card" onclick="this.classList.toggle('is-open')"><div class="turn-header"><span class="turn-badge">T3</span><span class="turn-name">なぞなぞ</span><span class="turn-toggle">&#9660;</span></div><div class="turn-detail"><div class="turn-detail-inner"><p class="detail-label">形式</p><p>2問先取・早押し（挙手）</p><p class="detail-label">投資上限</p><p>100アグリ</p><p class="detail-label">内容</p><p>簡単〜難しいミックスのなぞなぞ。スライドに問題が表示されます。</p></div></div></div>
+      <div class="turn-card" onclick="this.classList.toggle('is-open')"><div class="turn-header"><span class="turn-badge">T4</span><span class="turn-name">農大の先生バトル（山手線ゲーム）</span><span class="turn-toggle">&#9660;</span></div><div class="turn-detail"><div class="turn-detail-inner"><p class="detail-label">形式</p><p>山手線ゲーム（最後の1人が勝者）</p><p class="detail-label">投資上限</p><p>200アグリ</p><p class="detail-label">内容</p><p>農大の先生の名前を順番に言っていきます。5秒以内に答えられない or 重複で脱落。苗字でもあだ名でもOK。</p></div></div></div>
+      <div class="turn-card" onclick="this.classList.toggle('is-open')"><div class="turn-header"><span class="turn-badge">T5</span><span class="turn-name">5教科サバイバル</span><span class="turn-toggle">&#9660;</span></div><div class="turn-detail"><div class="turn-detail-inner"><p class="detail-label">形式</p><p>2問先取・早押し（挙手）</p><p class="detail-label">投資上限</p><p>200アグリ</p><p class="detail-label">内容</p><p>国語・数学・英語・理科・社会からランダム出題。高校レベルの問題です。</p></div></div></div>
+      <div class="turn-card" onclick="this.classList.toggle('is-open')"><div class="turn-header"><span class="turn-badge">T6</span><span class="turn-name">謎解き 〜頭取の野望〜</span><span class="turn-toggle">&#9660;</span></div><div class="turn-detail"><div class="turn-detail-inner"><p class="detail-label">形式</p><p>1問勝負。4人同時に考え、最初に正解した人が勝者</p><p class="detail-label">投資上限</p><p>200アグリ</p><p class="detail-label">内容</p><p>最終ターンにふさわしい謎解き問題。班メンバーによるスマホでのヘルプ検索も可能です。</p></div></div></div>
     </div>
-    <div class="star-labels"><span>わかりにくい</span><span>とてもわかりやすい</span></div>
-  </div>
+  </div></section>
 
-  <!-- Q4 -->
-  <div class="q-section" id="sec-q4">
-    <div class="q-number">Q4</div>
-    <div class="q-title">今後の同窓会の方向性</div>
-    <div class="q-desc">あなたの好みに最も近いものを選んでください</div>
-    <div class="radio-group">
-      <label class="radio-option" onclick="selectRadio(this)">
-        <input type="radio" name="q4" value="もっと攻めたユニーク企画を">
-        <span class="radio-dot"></span>
-        <span class="radio-label">もっと攻めたユニーク企画をやってほしい</span>
-      </label>
-      <label class="radio-option" onclick="selectRadio(this)">
-        <input type="radio" name="q4" value="今回くらいがちょうどいい">
-        <span class="radio-dot"></span>
-        <span class="radio-label">今回くらいがちょうどいい</span>
-      </label>
-      <label class="radio-option" onclick="selectRadio(this)">
-        <input type="radio" name="q4" value="オーソドックスな懇親会がいい">
-        <span class="radio-dot"></span>
-        <span class="radio-label">オーソドックスな懇親会がいい</span>
-      </label>
+  <!-- Events -->
+  <section class="section fade-in"><div class="container">
+    <p class="section-label">Events</p>
+    <h2 class="section-title">途中イベント</h2>
+    <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:var(--space-md)">ターンの合間にサプライズイベントが発生し、資産が変動します。いつ何が起こるかは当日のお楽しみです。</p>
+    <div class="events-list">
+      <div class="event-card event-card--bonus"><h3 class="event-name">頭取のへそくり</h3><p class="event-desc">ランダムで選ばれた会社にボーナスアグリが支給されます。</p></div>
+      <div class="event-card event-card--penalty"><h3 class="event-name">頭取のスキャンダル</h3><p class="event-desc">ランダムで選ばれた会社の資産が一定割合で減少します。</p></div>
+      <div class="event-card event-card--mercy"><h3 class="event-name">長田頭取の恩赦</h3><p class="event-desc">下位の会社にボーナスアグリが支給される救済イベントです。</p></div>
     </div>
-  </div>
+  </div></section>
 
-  <!-- Q5 -->
-  <div class="q-section" id="sec-q5">
-    <div class="q-number">Q5</div>
-    <div class="q-title">改善してほしかった点</div>
-    <div class="q-desc">会場 / 料理・ドリンク / 時間配分 / ゲームの進行 / 案内・受付 / 事前の連絡頻度 など、気になった点があればお聞かせください。この段階からコメントいただけると嬉しいです。</div>
-    <textarea class="textarea" id="q-improvement" placeholder="例：もう少し懇親の時間が長いと嬉しかったです"></textarea>
-  </div>
+  <!-- Game Screen Link -->
+  <section class="game-link-section fade-in"><div class="container">
+    <a href="https://script.google.com/macros/s/AKfycbw-4tpXD_Yo1F84Mic6r4Fgl0LugDLakLE9ZD6TGp5JXhSXUFFI2FsfcxO5L-hO_05Otw/exec" target="_blank" class="game-link-btn">ゲーム画面を開く</a>
+    <p class="game-link-note">投票・順位表・投資結果はこちらから</p>
+  </div></section>
 
-  <!-- Q6 -->
-  <div class="q-section" id="sec-q6">
-    <div class="q-number">Q6</div>
-    <div class="q-title">今後の開催頻度の希望</div>
-    <div class="radio-group">
-      <label class="radio-option" onclick="selectRadio(this)">
-        <input type="radio" name="q7" value="毎年">
-        <span class="radio-dot"></span>
-        <span class="radio-label">毎年</span>
-      </label>
-      <label class="radio-option" onclick="selectRadio(this)">
-        <input type="radio" name="q7" value="2〜3年に1回">
-        <span class="radio-dot"></span>
-        <span class="radio-label">2〜3年に1回</span>
-      </label>
-      <label class="radio-option" onclick="selectRadio(this)">
-        <input type="radio" name="q7" value="5年に1回">
-        <span class="radio-dot"></span>
-        <span class="radio-label">5年に1回</span>
-      </label>
-      <label class="radio-option" onclick="selectRadio(this)">
-        <input type="radio" name="q7" value="10年に1回">
-        <span class="radio-dot"></span>
-        <span class="radio-label">10年に1回</span>
-      </label>
-      <label class="radio-option" onclick="selectRadio(this)">
-        <input type="radio" name="q7" value="それ以上">
-        <span class="radio-dot"></span>
-        <span class="radio-label">それ以上</span>
-      </label>
-    </div>
-  </div>
+  <!-- Password Section -->
+  <section class="pw-section fade-in"><div class="container">
+    <p class="section-label">Password</p>
+    <h2 class="section-title">各社のパスワード</h2>
+    <p style="font-size:.8rem;color:var(--text-secondary);margin-bottom:var(--space-md)">タップすると投票用パスワードが表示されます。</p>
+    <div class="pw-grid" id="pwGrid"></div>
+  </div></section>
 
-  <!-- Q7 -->
-  <div class="q-section" id="sec-q7">
-    <div class="q-number">Q7</div>
-    <div class="q-title">運営へのひとこと</div>
-    <div class="q-desc">感想・要望・ねぎらい——長ければ長いほど嬉しいです！</div>
-    <textarea class="textarea" id="q-comment" placeholder="たくさん書いていただけると、運営一同とても励みになります" style="min-height:140px"></textarea>
-  </div>
-
-  <button class="submit-btn" id="submitBtn" onclick="submitSurvey()">回答を送信する</button>
-
-</div>
-
-<!-- THANK YOU -->
-<div class="survey-container thank-you" id="thankYou">
-  <a href="#" class="back-to-form" onclick="backToForm();return false;">アンケートに戻る</a>
-  <div class="thank-you-icon">🎉</div>
-  <h2>ご回答ありがとうございました</h2>
-  <p>いただいたご意見をもとに、次回以降の同窓会をより良いものにしていきます。</p>
-  <p>後日、今回の同窓会でお預かりした参加費の使途について収支報告を共有いたします。皆さまの目でご確認いただけますと幸いです。</p>
-</div>
-
-</main>
-
-<!-- ===== FOOTER (共通) ===== -->
-<footer class="site-footer">
-  <div style="max-width:960px;margin:0 auto;padding:0 2rem">
+  <!-- Footer -->
+  <footer class="site-footer"><div class="container">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLScaZqsb8PmDiATXvJReIDPr34LZl4RQOk-msbUmN5az5Q-R_g/viewform" target="_blank" rel="noopener" class="footer-contact">お問い合わせ</a>
-  </div>
-</footer>
+  </div></footer>
 
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
+  <script>
+    // Nav
+    var hamburger=document.getElementById('hamburger'),navOverlay=document.getElementById('navOverlay');
+    hamburger.addEventListener('click',function(){var o=hamburger.classList.toggle('is-active');navOverlay.classList.toggle('is-open',o);navOverlay.setAttribute('aria-hidden',!o);hamburger.setAttribute('aria-expanded',o);document.body.classList.toggle('nav-open',o)});
+    navOverlay.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){hamburger.classList.remove('is-active');navOverlay.classList.remove('is-open');navOverlay.setAttribute('aria-hidden','true');hamburger.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open')})});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&navOverlay.classList.contains('is-open'))hamburger.click()});
 
-<script>
-  /* ===== NAV (共通) ===== */
-  var h=document.getElementById('hamburger'),n=document.getElementById('navOverlay');
-  h.addEventListener('click',function(){
-    var o=h.classList.toggle('is-active');
-    n.classList.toggle('is-open',o);
-    n.setAttribute('aria-hidden',!o);
-    h.setAttribute('aria-expanded',o);
-    document.body.classList.toggle('nav-open',o);
-  });
-  n.querySelectorAll('a').forEach(function(l){
-    l.addEventListener('click',function(){
-      h.classList.remove('is-active');
-      n.classList.remove('is-open');
-      n.setAttribute('aria-hidden','true');
-      h.setAttribute('aria-expanded','false');
-      document.body.classList.remove('nav-open');
-    });
-  });
-  document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'&&n.classList.contains('is-open'))h.click();
-  });
-  window.addEventListener('scroll',function(){
-    document.getElementById('siteHeader').style.background=
-      window.scrollY>80?'rgba(18,18,26,.92)':'rgba(18,18,26,.6)';
-  },{passive:true});
+    // Scroll animations
+    var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target)}})},{rootMargin:'0px 0px -60px 0px',threshold:.1});
+    document.querySelectorAll('.fade-in').forEach(function(el){obs.observe(el)});
 
-  /* ===== FORM LOGIC ===== */
-  function selectRadio(el) {
-    var group = el.closest('.radio-group');
-    group.querySelectorAll('.radio-option').forEach(function(o){ o.classList.remove('selected'); });
-    el.classList.add('selected');
-    el.querySelector('input').checked = true;
-  }
+    // Header scroll
+    window.addEventListener('scroll',function(){document.getElementById('siteHeader').style.background=window.scrollY>80?'rgba(18,18,26,.92)':'rgba(18,18,26,.6)'},{passive:true});
 
-  function showToast(msg, duration) {
-    duration = duration || 3000;
-    var t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(function(){ t.classList.remove('show'); }, duration);
-  }
-
-  function validate() {
-    var required = [
-      { name: 'q1', section: 'sec-q1', label: '全体満足度' },
-      { name: 'q2', section: 'sec-q2', label: '長田頭取の野望の楽しさ' },
-      { name: 'q3', section: 'sec-q3', label: 'ルールのわかりやすさ' },
-      { name: 'q4', section: 'sec-q4', label: '同窓会の方向性' },
-      { name: 'q7', section: 'sec-q6', label: '開催頻度の希望' }
+    // Password grid
+    var passwords=[
+      {c:'A社',p:'AAA'},{c:'B社',p:'bubuca'},{c:'C社',p:'CG'},{c:'D社',p:'deisui'},
+      {c:'E社',p:'engine'},{c:'F社',p:'fukase'},{c:'G社',p:'G-shock'},{c:'H社',p:'header'},
+      {c:'I社',p:'interesting'},{c:'J社',p:'JK'},{c:'K社',p:'kokoro'},{c:'L社',p:'LM'},
+      {c:'M社',p:'mimikaki'},{c:'N社',p:'Nooo'},{c:'O社',p:'orange'},{c:'P社',p:'people'},
+      {c:'Q社',p:'quality'}
     ];
-    document.querySelectorAll('.highlight-required').forEach(function(el){ el.classList.remove('highlight-required'); });
-    for (var i = 0; i < required.length; i++) {
-      var r = required[i];
-      var checked = document.querySelector('input[name="' + r.name + '"]:checked');
-      if (!checked) {
-        var sec = document.getElementById(r.section);
-        sec.classList.add('highlight-required', 'shake');
-        (function(s){ setTimeout(function(){ s.classList.remove('shake'); }, 500); })(sec);
-        sec.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        showToast('「' + r.label + '」をご回答ください');
-        return false;
-      }
-    }
-    return true;
-  }
-
-  function collectData() {
-    var getValue = function(name) {
-      var el = document.querySelector('input[name="' + name + '"]:checked');
-      return el ? el.value : '';
-    };
-    return {
-      timestamp: new Date().toISOString(),
-      name: document.getElementById('q-name').value.trim(),
-      q1_overall: getValue('q1'),
-      q2_game_fun: getValue('q2'),
-      q3_rule_clarity: getValue('q3'),
-      q4_direction: getValue('q4'),
-      q5_improvements: document.getElementById('q-improvement').value.trim(),
-      q6_improvement_detail: '',
-      q7_frequency: getValue('q7'),
-      q8_comment: document.getElementById('q-comment').value.trim()
-    };
-  }
-
-  var SUBMIT_URL = 'https://script.google.com/macros/s/AKfycby28bem6GVnf15OhB_eocoYJYAjhKj1LqGCgdJnjjwZKnWHre4d5iuiAe2He7Y62xOuKg/exec';
-
-  function submitSurvey() {
-    if (!validate()) return;
-    var btn = document.getElementById('submitBtn');
-    btn.classList.add('sending');
-    btn.textContent = '送信中…';
-    var data = collectData();
-    fetch(SUBMIT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify(data)
-    })
-    .then(function() {
-      document.getElementById('formArea').classList.add('hidden');
-      var ty = document.getElementById('thankYou');
-      ty.classList.add('show');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    })
-    .catch(function(err) {
-      console.error('Submit error:', err);
-      btn.classList.remove('sending');
-      btn.textContent = '回答を送信する';
-      showToast('送信に失敗しました。もう一度お試しください。');
+    var grid=document.getElementById('pwGrid');
+    passwords.forEach(function(item){
+      var div=document.createElement('div');
+      div.className='pw-item';
+      div.innerHTML='<div class="pw-company">'+item.c+'</div><div class="pw-value">タップで表示</div>';
+      div.addEventListener('click',function(){
+        var revealed=div.classList.toggle('is-revealed');
+        div.querySelector('.pw-value').textContent=revealed?item.p:'タップで表示';
+      });
+      grid.appendChild(div);
     });
-  }
-
-  function backToForm() {
-    document.getElementById('thankYou').classList.remove('show');
-    document.getElementById('thankYou').style.display = 'none';
-    var form = document.getElementById('formArea');
-    form.classList.remove('hidden');
-    // Reset form state
-    var btn = document.getElementById('submitBtn');
-    btn.classList.remove('sending');
-    btn.textContent = '回答を送信する';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-</script>
-
+  </script>
 </body>
 </html>
