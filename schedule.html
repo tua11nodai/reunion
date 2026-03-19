@@ -10,162 +10,61 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* Warmer, slightly lighter dark palette */
-      --bg-primary:#12121a;
-      --bg-secondary:#1a1a25;
-      --bg-card:#1e1e2a;
-      --bg-overlay:rgba(18,18,26,0.97);
-      --text-primary:#eae7e0;
-      --text-secondary:#a09b92;
-      --text-muted:#6b6760;
-      --accent-gold:#c9a84c;
-      --accent-gold-light:#dfc06a;
+      --bg-primary:#12121a;--bg-secondary:#1a1a25;--bg-card:#1e1e2a;
+      --bg-overlay:rgba(18,18,26,0.97);--text-primary:#eae7e0;--text-secondary:#a09b92;
+      --text-muted:#6b6760;--accent-gold:#c9a84c;--accent-gold-light:#dfc06a;
+      --accent-coral:#d25a32;
       --border-subtle:rgba(201,168,76,0.15);
-
-      /* Card accent tints */
-      --tint-blue:rgba(56,120,200,0.08);
-      --tint-amber:rgba(201,168,76,0.1);
-      --tint-coral:rgba(210,90,50,0.08);
-      --tint-teal:rgba(50,180,140,0.08);
+      --tint-blue:rgba(56,120,200,0.08);--tint-amber:rgba(201,168,76,0.1);
+      --tint-coral:rgba(210,90,50,0.08);--tint-teal:rgba(50,180,140,0.08);
       --tint-purple:rgba(140,90,200,0.08);
-
       --font-display:'Cormorant Garamond','Noto Serif JP',serif;
-      --font-body:'Noto Sans JP',sans-serif;
-      --font-serif:'Noto Serif JP',serif;
+      --font-body:'Noto Sans JP',sans-serif;--font-serif:'Noto Serif JP',serif;
       --space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:4rem;--space-xl:6rem;
       --container-max:960px;--header-height:64px;
-      --ease-out-expo:cubic-bezier(0.16,1,0.3,1);
-      --ease-out-quart:cubic-bezier(0.25,1,0.5,1);
+      --ease-out-expo:cubic-bezier(0.16,1,0.3,1);--ease-out-quart:cubic-bezier(0.25,1,0.5,1);
     }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:var(--font-body);font-weight:300;
-      color:var(--text-primary);
-      background:var(--bg-primary);
-      /* Subtle warm radial glow on the body */
-      background-image:
-        radial-gradient(ellipse 80% 60% at 30% 20%, rgba(201,168,76,0.04) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 80% at 80% 70%, rgba(140,90,200,0.03) 0%, transparent 60%);
-      background-attachment:fixed;
-      line-height:1.8;letter-spacing:.02em;overflow-x:hidden;-webkit-font-smoothing:antialiased;
-    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);font-weight:300;color:var(--text-primary);background:var(--bg-primary);background-image:radial-gradient(ellipse 80% 60% at 30% 20%,rgba(201,168,76,0.04) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 80% 70%,rgba(140,90,200,0.03) 0%,transparent 60%);background-attachment:fixed;line-height:1.8;letter-spacing:.02em;overflow-x:hidden;-webkit-font-smoothing:antialiased}
     a{color:inherit;text-decoration:none}img{max-width:100%;height:auto;display:block}
     .container{width:100%;max-width:var(--container-max);margin:0 auto;padding:0 var(--space-md)}
 
     /* Header */
     .site-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--header-height);background:rgba(18,18,26,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border-subtle);transition:background .4s ease}
     .header-inner{max-width:var(--container-max);margin:0 auto;padding:0 var(--space-md);height:100%;display:flex;align-items:center;justify-content:space-between}
-    .header-logo{display:flex;flex-direction:column;line-height:1.2}
-    .logo-sub{font-family:var(--font-body);font-size:.6rem;font-weight:400;letter-spacing:.15em;color:var(--accent-gold)}
-    .logo-main{font-family:var(--font-serif);font-size:1rem;font-weight:600;letter-spacing:.08em;color:var(--text-primary)}
+    .header-logo{display:flex;flex-direction:column;line-height:1.2}.logo-sub{font-family:var(--font-body);font-size:.6rem;font-weight:400;letter-spacing:.15em;color:var(--accent-gold)}.logo-main{font-family:var(--font-serif);font-size:1rem;font-weight:600;letter-spacing:.08em;color:var(--text-primary)}
+    .hamburger{position:relative;z-index:1100;width:32px;height:24px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;padding:0}.hamburger-line{display:block;width:100%;height:1.5px;background:var(--text-primary);transition:all .4s var(--ease-out-expo);transform-origin:center}.hamburger.is-active .hamburger-line:nth-child(1){transform:translateY(11.25px) rotate(45deg)}.hamburger.is-active .hamburger-line:nth-child(2){opacity:0;transform:scaleX(0)}.hamburger.is-active .hamburger-line:nth-child(3){transform:translateY(-11.25px) rotate(-45deg)}
 
-    /* Hamburger */
-    .hamburger{position:relative;z-index:1100;width:32px;height:24px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;padding:0}
-    .hamburger-line{display:block;width:100%;height:1.5px;background:var(--text-primary);transition:all .4s var(--ease-out-expo);transform-origin:center}
-    .hamburger.is-active .hamburger-line:nth-child(1){transform:translateY(11.25px) rotate(45deg)}
-    .hamburger.is-active .hamburger-line:nth-child(2){opacity:0;transform:scaleX(0)}
-    .hamburger.is-active .hamburger-line:nth-child(3){transform:translateY(-11.25px) rotate(-45deg)}
-
-    /* Nav Overlay */
-    .nav-overlay{position:fixed;inset:0;z-index:1050;background:var(--bg-overlay);opacity:0;visibility:hidden;transition:opacity .5s var(--ease-out-expo),visibility .5s;overflow-y:auto;-webkit-overflow-scrolling:touch}
-    .nav-overlay.is-open{opacity:1;visibility:visible}
+    /* Nav */
+    .nav-overlay{position:fixed;inset:0;z-index:1050;background:var(--bg-overlay);opacity:0;visibility:hidden;transition:opacity .5s var(--ease-out-expo),visibility .5s;overflow-y:auto;-webkit-overflow-scrolling:touch}.nav-overlay.is-open{opacity:1;visibility:visible}
     .nav-overlay-inner{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--header-height) + var(--space-lg)) var(--space-md) var(--space-lg);max-width:480px;margin:0 auto}
-    .nav-section{padding:var(--space-sm) 0;border-bottom:1px solid var(--border-subtle)}
-    .nav-section:last-of-type{border-bottom:none}
+    .nav-section{padding:var(--space-sm) 0;border-bottom:1px solid var(--border-subtle)}.nav-section:last-of-type{border-bottom:none}
     .nav-label{display:block;font-family:var(--font-serif);font-size:.75rem;font-weight:500;color:var(--accent-gold);letter-spacing:.12em;padding-bottom:var(--space-xs);margin-bottom:var(--space-xs)}
-    .nav-link{display:block;font-family:var(--font-display);font-size:1.5rem;font-weight:400;color:var(--text-primary);padding:.4rem 0;transition:color .3s ease,transform .3s var(--ease-out-expo)}
-    .nav-link:hover{color:var(--accent-gold);transform:translateX(8px)}
-    .nav-link--active{color:var(--accent-gold)}
-    .nav-link--sub{font-size:1.1rem;color:var(--text-secondary);padding-left:1.2rem;position:relative}
-    .nav-link--sub::before{content:'';position:absolute;left:0;top:50%;width:12px;height:1px;background:var(--border-subtle)}
-    .nav-link--sub:hover{color:var(--accent-gold-light)}
-    .nav-footer{margin-top:var(--space-lg);padding-top:var(--space-md);border-top:1px solid var(--border-subtle)}
-    .nav-contact{font-size:.85rem;color:var(--accent-gold);letter-spacing:.08em;transition:opacity .3s ease}
-    .nav-contact:hover{opacity:.7}
+    .nav-link{display:block;font-family:var(--font-display);font-size:1.5rem;font-weight:400;color:var(--text-primary);padding:.4rem 0;transition:color .3s ease,transform .3s var(--ease-out-expo)}.nav-link:hover{color:var(--accent-gold);transform:translateX(8px)}.nav-link--active{color:var(--accent-gold)}
+    .nav-link--sub{font-size:1.1rem;color:var(--text-secondary);padding-left:1.2rem;position:relative}.nav-link--sub::before{content:'';position:absolute;left:0;top:50%;width:12px;height:1px;background:var(--border-subtle)}.nav-link--sub:hover{color:var(--accent-gold-light)}
+    .nav-footer{margin-top:var(--space-lg);padding-top:var(--space-md);border-top:1px solid var(--border-subtle)}.nav-contact{font-size:.85rem;color:var(--accent-gold);letter-spacing:.08em;transition:opacity .3s ease}.nav-contact:hover{opacity:.7}
 
     /* Page Hero */
-    .page-hero{
-      position:relative;
-      padding-top:calc(var(--header-height) + var(--space-xl));
-      padding-bottom:var(--space-xl);
-      overflow:hidden;
-    }
-    .page-hero-bg{
-      position:absolute;inset:0;
-      background-image:url('images/schedule.png');
-      background-size:cover;background-position:center;
-    }
-    .page-hero-overlay{
-      position:absolute;inset:0;
-      background:linear-gradient(180deg,rgba(18,18,26,.55) 0%,rgba(18,18,26,.88) 100%);
-    }
+    .page-hero{position:relative;padding-top:calc(var(--header-height) + var(--space-xl));padding-bottom:var(--space-xl);overflow:hidden}
+    .page-hero-bg{position:absolute;inset:0;background-image:url('images/schedule.png');background-size:cover;background-position:center}
+    .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,26,.55) 0%,rgba(18,18,26,.88) 100%)}
     .page-hero-content{position:relative;z-index:1;text-align:center}
-    .page-hero-title{
-      font-family:var(--font-display);
-      font-size:clamp(2rem,6vw,3rem);
-      font-weight:700;color:var(--text-primary);
-      letter-spacing:.1em;margin-bottom:var(--space-xs);
-    }
-    .page-hero-sub{
-      font-family:var(--font-serif);
-      font-size:clamp(.85rem,2vw,1rem);
-      color:var(--text-secondary);letter-spacing:.08em;
-    }
+    .page-hero-title{font-family:var(--font-display);font-size:clamp(2rem,6vw,3rem);font-weight:700;color:var(--text-primary);letter-spacing:.1em;margin-bottom:var(--space-xs)}
+    .page-hero-sub{font-family:var(--font-serif);font-size:clamp(.85rem,2vw,1rem);color:var(--text-secondary);letter-spacing:.08em}
 
-    /* ===== Timeline ===== */
+    /* Timeline */
     .timeline{padding:var(--space-xl) 0}
     .timeline-list{position:relative;list-style:none;padding-left:0}
-    .timeline-list::before{
-      content:'';position:absolute;
-      left:80px;top:0;bottom:0;width:2px;
-      background:linear-gradient(180deg,var(--accent-gold) 0%,rgba(140,90,200,.3) 50%,rgba(50,180,140,.3) 100%);
-      border-radius:1px;
-    }
-
-    .timeline-item{position:relative;padding-left:120px;padding-bottom:var(--space-lg)}
-    .timeline-item:last-child{padding-bottom:0}
-
-    .timeline-time{
-      position:absolute;left:0;top:4px;width:64px;text-align:right;
-      font-family:var(--font-display);font-size:1.15rem;font-weight:600;
-      color:var(--accent-gold);letter-spacing:.05em;
-    }
-
-    .timeline-dot{
-      position:absolute;left:72px;top:6px;
-      width:18px;height:18px;border-radius:50%;
-      background:var(--bg-primary);
-      border:2.5px solid var(--accent-gold);
-      z-index:1;
-      transition:transform .3s var(--ease-out-expo);
-    }
+    .timeline-list::before{content:'';position:absolute;left:80px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent-gold) 0%,rgba(140,90,200,.3) 50%,rgba(50,180,140,.3) 100%);border-radius:1px}
+    .timeline-item{position:relative;padding-left:120px;padding-bottom:var(--space-lg)}.timeline-item:last-child{padding-bottom:0}
+    .timeline-time{position:absolute;left:0;top:4px;width:64px;text-align:right;font-family:var(--font-display);font-size:1.15rem;font-weight:600;color:var(--accent-gold);letter-spacing:.05em}
+    .timeline-dot{position:absolute;left:72px;top:6px;width:18px;height:18px;border-radius:50%;background:var(--bg-primary);border:2.5px solid var(--accent-gold);z-index:1;transition:transform .3s var(--ease-out-expo)}
     .timeline-item:hover .timeline-dot{transform:scale(1.2)}
-    .timeline-dot--highlight{
-      background:var(--accent-gold);
-      box-shadow:0 0 16px rgba(201,168,76,.35);
-    }
-    .timeline-dot--muted{
-      border-color:var(--text-muted);
-      width:14px;height:14px;
-      left:74px;top:8px;
-    }
+    .timeline-dot--highlight{background:var(--accent-gold);box-shadow:0 0 16px rgba(201,168,76,.35)}
+    .timeline-dot--muted{border-color:var(--text-muted);width:14px;height:14px;left:74px;top:8px}
 
-    /* Card with colored left border */
-    .timeline-card{
-      background:var(--bg-card);
-      border:1px solid rgba(201,168,76,.08);
-      border-left:3px solid var(--accent-gold);
-      border-radius:0 8px 8px 0;
-      padding:1.4rem 1.6rem;
-      transition:all .3s ease;
-    }
-    .timeline-item:hover .timeline-card{
-      border-left-color:var(--accent-gold-light);
-      box-shadow:0 4px 24px rgba(0,0,0,.2);
-    }
-
-    /* Card color tints per type */
+    .timeline-card{background:var(--bg-card);border:1px solid rgba(201,168,76,.08);border-left:3px solid var(--accent-gold);border-radius:0 8px 8px 0;padding:1.4rem 1.6rem;transition:all .3s ease}
+    .timeline-item:hover .timeline-card{border-left-color:var(--accent-gold-light);box-shadow:0 4px 24px rgba(0,0,0,.2)}
     .timeline-card--reception{background:linear-gradient(135deg,var(--tint-blue),var(--bg-card) 60%);border-left-color:#3878c8}
     .timeline-card--opening{background:linear-gradient(135deg,var(--tint-amber),var(--bg-card) 60%);border-left-color:var(--accent-gold)}
     .timeline-card--game{background:linear-gradient(135deg,var(--tint-coral),var(--bg-card) 60%);border-left-color:#d25a32}
@@ -173,264 +72,173 @@
     .timeline-card--party{background:linear-gradient(135deg,var(--tint-purple),var(--bg-card) 60%);border-left-color:#8c5ac8}
     .timeline-card--end{background:var(--bg-secondary);border-left-color:var(--text-muted)}
 
-    .timeline-card-title{
-      font-family:var(--font-serif);font-size:1.15rem;font-weight:600;
-      color:var(--text-primary);letter-spacing:.05em;margin-bottom:.3rem;
-    }
-    .timeline-card-subtitle{
-      font-family:var(--font-serif);font-size:.85rem;font-weight:400;
-      color:var(--accent-gold);letter-spacing:.03em;margin-bottom:.6rem;
-    }
+    .timeline-card-title{font-family:var(--font-serif);font-size:1.15rem;font-weight:600;color:var(--text-primary);letter-spacing:.05em;margin-bottom:.3rem}
+    .timeline-card-subtitle{font-family:var(--font-serif);font-size:.85rem;font-weight:400;color:var(--accent-gold);letter-spacing:.03em;margin-bottom:.6rem}
     .timeline-card-body{font-size:.85rem;color:var(--text-secondary);line-height:1.7}
-    .timeline-card-body p{margin-bottom:.4rem}
-    .timeline-card-body p:last-child{margin-bottom:0}
+    .timeline-card-body p{margin-bottom:.4rem}.timeline-card-body p:last-child{margin-bottom:0}
+    .timeline-card-location{display:inline-flex;align-items:center;gap:.3rem;font-size:.8rem;color:var(--text-secondary);margin-bottom:.5rem}
+    .timeline-card-location::before{content:'';display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--accent-gold);opacity:.6}
+    .timeline-card-note{font-size:.75rem;color:var(--text-muted);margin-top:.8rem;padding-top:.6rem;border-top:1px solid rgba(201,168,76,.06);line-height:1.6}
+    .timeline-duration{display:inline-block;font-family:var(--font-display);font-size:.7rem;letter-spacing:.1em;color:var(--accent-gold);background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.12);padding:.2rem .7rem;border-radius:20px;margin-top:.6rem}
 
-    .timeline-card-location{
-      display:inline-flex;align-items:center;gap:.3rem;
-      font-size:.8rem;color:var(--text-secondary);
-      margin-bottom:.5rem;
-    }
-    .timeline-card-location::before{
-      content:'';display:inline-block;
-      width:4px;height:4px;border-radius:50%;
-      background:var(--accent-gold);opacity:.6;
-    }
-
-    .timeline-card-note{
-      font-size:.75rem;color:var(--text-muted);
-      margin-top:.8rem;padding-top:.6rem;
-      border-top:1px solid rgba(201,168,76,.06);
-      line-height:1.6;
-    }
-    .timeline-duration{
-      display:inline-block;
-      font-family:var(--font-display);font-size:.7rem;letter-spacing:.1em;
-      color:var(--accent-gold);
-      background:rgba(201,168,76,.08);
-      border:1px solid rgba(201,168,76,.12);
-      padding:.2rem .7rem;border-radius:20px;
-      margin-top:.6rem;
-    }
+    /* Card inline link */
+    .card-link{display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;font-weight:400;color:var(--accent-gold);background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.1);border-radius:20px;padding:.25rem .8rem;margin-top:.6rem;transition:all .25s ease}
+    .card-link:hover{background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.25)}
+    .card-link-arrow{font-size:.6rem;transition:transform .25s ease}
+    .card-link:hover .card-link-arrow{transform:translateX(3px)}
 
     /* 2次会 */
-    .afterparty{
-      padding:var(--space-lg) 0;
-      border-top:1px solid var(--border-subtle);
-      text-align:center;
-    }
-    .afterparty-title{
-      font-family:var(--font-serif);font-size:1.1rem;font-weight:600;
-      color:var(--text-primary);letter-spacing:.05em;margin-bottom:var(--space-sm);
-    }
-    .afterparty-body{
-      font-size:.85rem;color:var(--text-secondary);
-      max-width:500px;margin:0 auto;line-height:1.8;
-    }
+    .afterparty{padding:var(--space-lg) 0;border-top:1px solid var(--border-subtle);text-align:center}
+    .afterparty-title{font-family:var(--font-serif);font-size:1.1rem;font-weight:600;color:var(--text-primary);letter-spacing:.05em;margin-bottom:var(--space-sm)}
+    .afterparty-body{font-size:.85rem;color:var(--text-secondary);max-width:500px;margin:0 auto;line-height:1.8}
 
     /* Footer */
     .site-footer{padding:var(--space-md) 0;border-top:1px solid var(--border-subtle);text-align:center}
-    .footer-contact{display:inline-block;font-size:.8rem;color:var(--accent-gold);letter-spacing:.1em;border:1px solid var(--border-subtle);padding:.5rem 1.5rem;transition:all .3s ease}
-    .footer-contact:hover{border-color:var(--accent-gold)}
+    .footer-contact{display:inline-block;font-size:.8rem;color:var(--accent-gold);letter-spacing:.1em;border:1px solid var(--border-subtle);padding:.5rem 1.5rem;transition:all .3s ease}.footer-contact:hover{border-color:var(--accent-gold)}
 
     /* Animations */
-    .fade-in{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease-out-quart),transform .8s var(--ease-out-quart)}
-    .fade-in.is-visible{opacity:1;transform:translateY(0)}
+    .fade-in{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease-out-quart),transform .8s var(--ease-out-quart)}.fade-in.is-visible{opacity:1;transform:translateY(0)}
     .stagger-children>*{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease-out-quart),transform .6s var(--ease-out-quart)}
-    .stagger-children.is-visible>*:nth-child(1){transition-delay:.05s}
-    .stagger-children.is-visible>*:nth-child(2){transition-delay:.12s}
-    .stagger-children.is-visible>*:nth-child(3){transition-delay:.19s}
-    .stagger-children.is-visible>*:nth-child(4){transition-delay:.26s}
-    .stagger-children.is-visible>*:nth-child(5){transition-delay:.33s}
-    .stagger-children.is-visible>*:nth-child(6){transition-delay:.4s}
-    .stagger-children.is-visible>*:nth-child(7){transition-delay:.47s}
-    .stagger-children.is-visible>*{opacity:1;transform:translateY(0)}
+    .stagger-children.is-visible>*:nth-child(1){transition-delay:.05s}.stagger-children.is-visible>*:nth-child(2){transition-delay:.12s}.stagger-children.is-visible>*:nth-child(3){transition-delay:.19s}.stagger-children.is-visible>*:nth-child(4){transition-delay:.26s}.stagger-children.is-visible>*:nth-child(5){transition-delay:.33s}.stagger-children.is-visible>*:nth-child(6){transition-delay:.4s}.stagger-children.is-visible>*:nth-child(7){transition-delay:.47s}.stagger-children.is-visible>*{opacity:1;transform:translateY(0)}
 
-    /* Responsive */
-    @media(max-width:768px){
-      :root{--header-height:56px}
-      .timeline-list::before{left:40px}
-      .timeline-item{padding-left:72px}
-      .timeline-time{width:30px;font-size:.9rem}
-      .timeline-dot{left:32px}
-      .timeline-dot--muted{left:34px}
-      .nav-link{font-size:1.3rem}.nav-link--sub{font-size:1rem}
-    }
-    @media(max-width:480px){
-      .container{padding:0 var(--space-sm)}
-      .timeline-card{padding:1rem 1.1rem}
-    }
+    @media(max-width:768px){:root{--header-height:56px}.timeline-list::before{left:40px}.timeline-item{padding-left:72px}.timeline-time{width:30px;font-size:.9rem}.timeline-dot{left:32px}.timeline-dot--muted{left:34px}.nav-link{font-size:1.3rem}.nav-link--sub{font-size:1rem}}
+    @media(max-width:480px){.container{padding:0 var(--space-sm)}.timeline-card{padding:1rem 1.1rem}}
     body.nav-open{overflow:hidden}
   </style>
 </head>
 <body>
-  <header class="site-header" id="siteHeader">
-    <div class="header-inner">
-      <a href="index.html" class="header-logo">
-        <span class="logo-sub">農大一中一高</span>
-        <span class="logo-main">第2回同窓会</span>
-      </a>
-      <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
-    </div>
-  </header>
+  <header class="site-header" id="siteHeader"><div class="header-inner">
+    <a href="index.html" class="header-logo"><span class="logo-sub">農大一中一高</span><span class="logo-main">第2回同窓会</span></a>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
+  </div></header>
 
-  <nav class="nav-overlay" id="navOverlay" aria-hidden="true">
-    <div class="nav-overlay-inner">
-      <div class="nav-section"><a href="index.html" class="nav-link">ホーム</a></div>
-      <div class="nav-section"><a href="schedule.html" class="nav-link nav-link--active">Schedule</a></div>
-      <div class="nav-section">
-        <span class="nav-label">長田頭取の野望</span>
-        <a href="nagata-about.html" class="nav-link nav-link--sub">ゲーム概要</a>
-        <a href="nagata-scoreboard.html" class="nav-link nav-link--sub">リアルタイムスコアボード</a>
-        <a href="nagata-vote.html" class="nav-link nav-link--sub">Web投票</a>
-        <a href="nagata-results.html" class="nav-link nav-link--sub">投票結果</a>
-      </div>
-      <div class="nav-section"><a href="food.html" class="nav-link">Food &amp; 懇親会</a></div>
-      <div class="nav-section"><a href="venue.html" class="nav-link">Venue</a></div>
-      <div class="nav-section"><a href="qa.html" class="nav-link">Q&amp;A</a></div>
-      <div class="nav-footer">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScaZqsb8PmDiATXvJReIDPr34LZl4RQOk-msbUmN5az5Q-R_g/viewform" target="_blank" rel="noopener" class="nav-contact">お問い合わせ</a>
-      </div>
+  <nav class="nav-overlay" id="navOverlay" aria-hidden="true"><div class="nav-overlay-inner">
+    <div class="nav-section"><a href="index.html" class="nav-link">ホーム</a></div>
+    <div class="nav-section"><a href="schedule.html" class="nav-link nav-link--active">Schedule</a></div>
+    <div class="nav-section">
+      <span class="nav-label">長田頭取の野望</span>
+      <a href="nagata-about.html" class="nav-link nav-link--sub">ゲーム概要</a>
+      <a href="https://script.google.com/macros/s/AKfycbw-4tpXD_Yo1F84Mic6r4Fgl0LugDLakLE9ZD6TGp5JXhSXUFFI2FsfcxO5L-hO_05Otw/exec" target="_blank" class="nav-link nav-link--sub">ゲーム画面</a>
     </div>
-  </nav>
+    <div class="nav-section"><a href="food.html" class="nav-link">Food &amp; 懇親会</a></div>
+    <div class="nav-section"><a href="venue.html" class="nav-link">Venue</a></div>
+    <div class="nav-section"><a href="qa.html" class="nav-link">Q&amp;A</a></div>
+    <div class="nav-footer"><a href="https://docs.google.com/forms/d/e/1FAIpQLScaZqsb8PmDiATXvJReIDPr34LZl4RQOk-msbUmN5az5Q-R_g/viewform" target="_blank" rel="noopener" class="nav-contact">お問い合わせ</a></div>
+  </div></nav>
 
   <section class="page-hero">
     <div class="page-hero-bg"></div>
     <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-      <div class="container">
-        <h1 class="page-hero-title">Schedule</h1>
-        <p class="page-hero-sub">2026年 3月 22日（日）当日のタイムテーブル</p>
-      </div>
-    </div>
+    <div class="page-hero-content"><div class="container">
+      <h1 class="page-hero-title">Schedule</h1>
+      <p class="page-hero-sub">2026年 3月 22日（日）当日のタイムテーブル</p>
+    </div></div>
   </section>
 
-  <section class="timeline">
-    <div class="container">
-      <ul class="timeline-list stagger-children">
+  <section class="timeline"><div class="container">
+    <ul class="timeline-list stagger-children">
 
-        <li class="timeline-item">
-          <span class="timeline-time">13:30</span>
-          <span class="timeline-dot"></span>
-          <div class="timeline-card timeline-card--reception">
-            <h3 class="timeline-card-title">受付開始</h3>
-            <span class="timeline-card-location">3号館4階 大講義室</span>
-            <div class="timeline-card-body">
-              <p>来場後は受付を済ませ、名札を付けて着席してお待ちください。</p>
-            </div>
-            <span class="timeline-duration">30 min</span>
-          </div>
-        </li>
+      <!-- 13:30 受付 -->
+      <li class="timeline-item">
+        <span class="timeline-time">13:30</span>
+        <span class="timeline-dot"></span>
+        <div class="timeline-card timeline-card--reception">
+          <h3 class="timeline-card-title">受付開始</h3>
+          <span class="timeline-card-location">3号館4階 大講義室</span>
+          <div class="timeline-card-body"><p>来場後は受付を済ませ、名札を付けて着席してお待ちください。</p></div>
+          <span class="timeline-duration">30 min</span>
+        </div>
+      </li>
 
-        <li class="timeline-item">
-          <span class="timeline-time">14:00</span>
-          <span class="timeline-dot timeline-dot--highlight"></span>
-          <div class="timeline-card timeline-card--opening">
-            <h3 class="timeline-card-title">開会式</h3>
-            <span class="timeline-card-location">3号館4階 大講義室</span>
-            <div class="timeline-card-body">
-              <p>当日の流れと各コンテンツの紹介を行います。</p>
-            </div>
-            <span class="timeline-duration">20 min</span>
-          </div>
-        </li>
+      <!-- 14:00 開会式 -->
+      <li class="timeline-item">
+        <span class="timeline-time">14:00</span>
+        <span class="timeline-dot timeline-dot--highlight"></span>
+        <div class="timeline-card timeline-card--opening">
+          <h3 class="timeline-card-title">開会式</h3>
+          <span class="timeline-card-location">3号館4階 大講義室</span>
+          <div class="timeline-card-body"><p>当日の流れと各コンテンツの紹介を行います。</p></div>
+          <span class="timeline-duration">20 min</span>
+        </div>
+      </li>
 
-        <li class="timeline-item">
-          <span class="timeline-time">14:20</span>
-          <span class="timeline-dot timeline-dot--highlight"></span>
-          <div class="timeline-card timeline-card--game">
-            <h3 class="timeline-card-title">長田頭取の野望</h3>
-            <p class="timeline-card-subtitle">〜知耕実学でアグリを増やせ！サバイバル・クイズ〜</p>
-            <span class="timeline-card-location">3号館4階 大講義室</span>
-            <div class="timeline-card-body">
-              <p>6名程度の班に分かれ、クイズ×ギャンブルでポイントを稼ぐゲームです。</p>
-            </div>
-            <span class="timeline-duration">1h 25min</span>
-          </div>
-        </li>
+      <!-- 14:20 長田頭取の野望 -->
+      <li class="timeline-item">
+        <span class="timeline-time">14:20</span>
+        <span class="timeline-dot timeline-dot--highlight"></span>
+        <div class="timeline-card timeline-card--game">
+          <h3 class="timeline-card-title">長田頭取の野望</h3>
+          <p class="timeline-card-subtitle">〜知耕実学でアグリを増やせ！サバイバル・クイズ〜</p>
+          <span class="timeline-card-location">3号館4階 大講義室</span>
+          <div class="timeline-card-body"><p>6名程度の班に分かれ、クイズ×ギャンブルでポイントを稼ぐゲームです。</p></div>
+          <a href="nagata-about.html" class="card-link">ゲーム概要を見る <span class="card-link-arrow">&rarr;</span></a>
+          <span class="timeline-duration">1h 25min</span>
+        </div>
+      </li>
 
-        <li class="timeline-item">
-          <span class="timeline-time">15:45</span>
-          <span class="timeline-dot"></span>
-          <div class="timeline-card timeline-card--explore">
-            <h3 class="timeline-card-title">自由散策・記念撮影タイム</h3>
-            <span class="timeline-card-location">農大一高校内</span>
-            <div class="timeline-card-body">
-              <p>思い出の場所を自由に散策し、記念撮影をお楽しみください。</p>
-            </div>
-            <span class="timeline-duration">45 min</span>
-          </div>
-        </li>
+      <!-- 15:45 自由散策 -->
+      <li class="timeline-item">
+        <span class="timeline-time">15:45</span>
+        <span class="timeline-dot"></span>
+        <div class="timeline-card timeline-card--explore">
+          <h3 class="timeline-card-title">自由散策・記念撮影タイム</h3>
+          <span class="timeline-card-location">農大一高校内</span>
+          <div class="timeline-card-body"><p>思い出の場所を自由に散策し、記念撮影をお楽しみください。</p></div>
+          <a href="venue.html" class="card-link">会場マップを見る <span class="card-link-arrow">&rarr;</span></a>
+          <span class="timeline-duration">45 min</span>
+        </div>
+      </li>
 
-        <li class="timeline-item">
-          <span class="timeline-time">16:30</span>
-          <span class="timeline-dot timeline-dot--highlight"></span>
-          <div class="timeline-card timeline-card--party">
-            <h3 class="timeline-card-title">懇親会（乾杯）</h3>
-            <span class="timeline-card-location">国際センター1階 レストラン</span>
-            <div class="timeline-card-body">
-              <p>立食形式で食べ物とお酒を楽しみながら、旧友との交流をお楽しみください。</p>
-            </div>
-            <div class="timeline-card-note">
-              ※ 当初予定していたビンゴ大会は都合により中止となりました。ご了承ください。
-            </div>
-            <span class="timeline-duration">3h</span>
-          </div>
-        </li>
+      <!-- 16:30 懇親会 -->
+      <li class="timeline-item">
+        <span class="timeline-time">16:30</span>
+        <span class="timeline-dot timeline-dot--highlight"></span>
+        <div class="timeline-card timeline-card--party">
+          <h3 class="timeline-card-title">懇親会（乾杯）</h3>
+          <span class="timeline-card-location">国際センター1階 レストラン</span>
+          <div class="timeline-card-body"><p>立食形式で食べ物とお酒を楽しみながら、旧友との交流をお楽しみください。</p></div>
+          <a href="food.html" class="card-link">Food &amp; 懇親会を見る <span class="card-link-arrow">&rarr;</span></a>
+          <div class="timeline-card-note">※ 当初予定していたビンゴ大会は都合により中止となりました。ご了承ください。</div>
+          <span class="timeline-duration">3h</span>
+        </div>
+      </li>
 
-        <li class="timeline-item">
-          <span class="timeline-time">19:30</span>
-          <span class="timeline-dot timeline-dot--muted"></span>
-          <div class="timeline-card timeline-card--end">
-            <h3 class="timeline-card-title">懇親会終了</h3>
-            <div class="timeline-card-body">
-              <p>お忘れ物のないようお気をつけてお帰りください。</p>
-            </div>
-          </div>
-        </li>
+      <!-- 19:30 終了 -->
+      <li class="timeline-item">
+        <span class="timeline-time">19:30</span>
+        <span class="timeline-dot timeline-dot--muted"></span>
+        <div class="timeline-card timeline-card--end">
+          <h3 class="timeline-card-title">懇親会終了</h3>
+          <div class="timeline-card-body"><p>お忘れ物のないようお気をつけてお帰りください。</p></div>
+        </div>
+      </li>
 
-        <li class="timeline-item">
-          <span class="timeline-time">20:00</span>
-          <span class="timeline-dot timeline-dot--muted"></span>
-          <div class="timeline-card timeline-card--end">
-            <h3 class="timeline-card-title">完全撤収</h3>
-            <div class="timeline-card-body">
-              <p>会場の完全撤収時刻です。</p>
-            </div>
-          </div>
-        </li>
+      <!-- 20:00 撤収 -->
+      <li class="timeline-item">
+        <span class="timeline-time">20:00</span>
+        <span class="timeline-dot timeline-dot--muted"></span>
+        <div class="timeline-card timeline-card--end">
+          <h3 class="timeline-card-title">完全撤収</h3>
+          <div class="timeline-card-body"><p>会場の完全撤収時刻です。</p></div>
+        </div>
+      </li>
 
-      </ul>
-    </div>
-  </section>
+    </ul>
+  </div></section>
 
-  <section class="afterparty fade-in">
-    <div class="container">
-      <h2 class="afterparty-title">2次会について</h2>
-      <p class="afterparty-body">
-        同窓会終了後、2次会の開催を予定しています。<br>
-        当日参加を希望される方は、運営メンバーにお声掛けください。
-      </p>
-    </div>
-  </section>
+  <section class="afterparty fade-in"><div class="container">
+    <h2 class="afterparty-title">2次会について</h2>
+    <p class="afterparty-body">同窓会終了後、2次会の開催を予定しています。<br>当日参加を希望される方は、運営メンバーにお声掛けください。</p>
+  </div></section>
 
-  <footer class="site-footer">
-    <div class="container">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScaZqsb8PmDiATXvJReIDPr34LZl4RQOk-msbUmN5az5Q-R_g/viewform" target="_blank" rel="noopener" class="footer-contact">お問い合わせ</a>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScaZqsb8PmDiATXvJReIDPr34LZl4RQOk-msbUmN5az5Q-R_g/viewform" target="_blank" rel="noopener" class="footer-contact">お問い合わせ</a>
+  </div></footer>
 
   <script>
-    const hamburger=document.getElementById('hamburger'),navOverlay=document.getElementById('navOverlay');
-    hamburger.addEventListener('click',()=>{const o=hamburger.classList.toggle('is-active');navOverlay.classList.toggle('is-open',o);navOverlay.setAttribute('aria-hidden',!o);hamburger.setAttribute('aria-expanded',o);document.body.classList.toggle('nav-open',o)});
-    navOverlay.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>{hamburger.classList.remove('is-active');navOverlay.classList.remove('is-open');navOverlay.setAttribute('aria-hidden','true');hamburger.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open')})});
-    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&navOverlay.classList.contains('is-open'))hamburger.click()});
-    const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target)}})},{rootMargin:'0px 0px -60px 0px',threshold:.1});
-    document.querySelectorAll('.fade-in,.stagger-children').forEach(el=>obs.observe(el));
-    window.addEventListener('scroll',()=>{document.getElementById('siteHeader').style.background=window.scrollY>80?'rgba(18,18,26,.92)':'rgba(18,18,26,.6)'},{passive:true});
+    var h=document.getElementById('hamburger'),n=document.getElementById('navOverlay');h.addEventListener('click',function(){var o=h.classList.toggle('is-active');n.classList.toggle('is-open',o);n.setAttribute('aria-hidden',!o);h.setAttribute('aria-expanded',o);document.body.classList.toggle('nav-open',o)});n.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){h.classList.remove('is-active');n.classList.remove('is-open');n.setAttribute('aria-hidden','true');h.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open')})});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('is-open'))h.click()});
+    var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target)}})},{rootMargin:'0px 0px -60px 0px',threshold:.1});document.querySelectorAll('.fade-in,.stagger-children').forEach(function(el){obs.observe(el)});
+    window.addEventListener('scroll',function(){document.getElementById('siteHeader').style.background=window.scrollY>80?'rgba(18,18,26,.92)':'rgba(18,18,26,.6)'},{passive:true});
   </script>
 </body>
 </html>
