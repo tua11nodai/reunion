@@ -323,7 +323,138 @@
       </div></div>
     </div>
   </div></section>
+<!-- ========================================
+  アフターアンケート誘導バナー
+  各ページの </main> 直前 or フッター直前に貼り付けてください
+  ======================================== -->
+<section class="survey-banner" id="survey-banner">
+  <div class="survey-banner__bg">
+    <img src="images/food.png" alt="" class="survey-banner__img" loading="lazy">
+  </div>
+  <div class="survey-banner__overlay"></div>
+  <div class="survey-banner__content">
+    <p class="survey-banner__label">After Survey</p>
+    <h2 class="survey-banner__title">同窓会のアフターアンケートは<br>こちらから</h2>
+    <p class="survey-banner__desc">皆さまの率直なご感想をお聞かせください。<br>今後の同窓会をより良くするために活用いたします。</p>
+    <a href="survey.html" class="survey-banner__btn">アンケートに回答する</a>
+  </div>
+</section>
 
+<style>
+  /* === アンケート誘導バナー === */
+  .survey-banner{
+    position:relative;
+    width:100%;
+    min-height:320px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    margin-top:64px;
+  }
+
+  /* 背景画像（ぼかし強め・拡大） */
+  .survey-banner__bg{
+    position:absolute;
+    inset:-20px;
+    z-index:0;
+  }
+  .survey-banner__img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:scale(2);
+    transform-origin:center center;
+    filter:blur(28px) saturate(0.6);
+  }
+
+  /* 暗めオーバーレイ */
+  .survey-banner__overlay{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    background:linear-gradient(
+      180deg,
+      rgba(18,18,26,0.75) 0%,
+      rgba(18,18,26,0.88) 50%,
+      rgba(18,18,26,0.95) 100%
+    );
+  }
+
+  /* コンテンツ */
+  .survey-banner__content{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    padding:48px 24px;
+    max-width:500px;
+  }
+
+  .survey-banner__label{
+    font-family:'Cormorant Garamond','Noto Serif JP',serif;
+    font-size:.8rem;
+    letter-spacing:.15em;
+    color:#c9a84c;
+    text-transform:uppercase;
+    margin-bottom:12px;
+  }
+
+  .survey-banner__title{
+    font-family:'Noto Serif JP',serif;
+    font-size:1.25rem;
+    font-weight:600;
+    color:#eae7e0;
+    line-height:1.7;
+    margin-bottom:16px;
+  }
+
+  .survey-banner__desc{
+    font-family:'Noto Sans JP',sans-serif;
+    font-size:.82rem;
+    font-weight:300;
+    color:#a09b92;
+    line-height:1.9;
+    margin-bottom:28px;
+  }
+
+  .survey-banner__btn{
+    display:inline-block;
+    padding:14px 40px;
+    background:linear-gradient(135deg,#c9a84c,#dfc06a);
+    color:#12121a;
+    font-family:'Noto Serif JP',serif;
+    font-size:.95rem;
+    font-weight:600;
+    text-decoration:none;
+    border-radius:8px;
+    transition:opacity .25s,transform .15s;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .survey-banner__btn:active{
+    transform:scale(.97);
+  }
+  .survey-banner__btn:hover{
+    opacity:.9;
+  }
+
+  /* レスポンシブ */
+  @media(max-width:480px){
+    .survey-banner{
+      min-height:280px;
+      margin-top:48px;
+    }
+    .survey-banner__title{
+      font-size:1.1rem;
+    }
+    .survey-banner__content{
+      padding:36px 20px;
+    }
+    .survey-banner__btn{
+      padding:13px 32px;
+      font-size:.9rem;
+    }
+  }
+</style>
   <footer class="site-footer"><div class="container">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLScaZqsb8PmDiATXvJReIDPr34LZl4RQOk-msbUmN5az5Q-R_g/viewform" target="_blank" rel="noopener" class="footer-contact">お問い合わせ</a>
   </div></footer>
