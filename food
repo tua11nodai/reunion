@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Food & 懇親会 | 第2回同窓会</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary:#12121a;--bg-secondary:#1a1a25;--bg-card:#1e1e2a;
+      --bg-overlay:rgba(18,18,26,0.97);--text-primary:#eae7e0;--text-secondary:#a09b92;
+      --text-muted:#6b6760;--accent-gold:#c9a84c;--accent-gold-light:#dfc06a;
+      --accent-coral:#d25a32;--accent-teal:#32b48c;--accent-purple:#8c5ac8;
+      --border-subtle:rgba(201,168,76,0.15);--border-card:rgba(201,168,76,0.06);
+      --font-display:'Cormorant Garamond','Noto Serif JP',serif;
+      --font-body:'Noto Sans JP',sans-serif;--font-serif:'Noto Serif JP',serif;
+      --space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:4rem;--space-xl:6rem;
+      --container-max:960px;--header-height:64px;
+      --ease-out-expo:cubic-bezier(0.16,1,0.3,1);--ease-out-quart:cubic-bezier(0.25,1,0.5,1);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);font-weight:300;color:var(--text-primary);background:var(--bg-primary);background-image:radial-gradient(ellipse 80% 60% at 30% 20%,rgba(201,168,76,0.04) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 80% 70%,rgba(140,90,200,0.02) 0%,transparent 60%);background-attachment:fixed;line-height:1.8;letter-spacing:.02em;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}img{max-width:100%;height:auto;display:block;border-radius:6px}
+    .container{width:100%;max-width:var(--container-max);margin:0 auto;padding:0 var(--space-md)}
+
+    .site-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--header-height);background:rgba(18,18,26,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border-subtle)}
+    .header-inner{max-width:var(--container-max);margin:0 auto;padding:0 var(--space-md);height:100%;display:flex;align-items:center;justify-content:space-between}
+    .header-logo{display:flex;flex-direction:column;line-height:1.2}.logo-sub{font-size:.6rem;letter-spacing:.15em;color:var(--accent-gold)}.logo-main{font-family:var(--font-serif);font-size:1rem;font-weight:600;letter-spacing:.08em}
+    .hamburger{position:relative;z-index:1100;width:32px;height:24px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;padding:0}.hamburger-line{display:block;width:100%;height:1.5px;background:var(--text-primary);transition:all .4s var(--ease-out-expo);transform-origin:center}.hamburger.is-active .hamburger-line:nth-child(1){transform:translateY(11.25px) rotate(45deg)}.hamburger.is-active .hamburger-line:nth-child(2){opacity:0;transform:scaleX(0)}.hamburger.is-active .hamburger-line:nth-child(3){transform:translateY(-11.25px) rotate(-45deg)}
+    .nav-overlay{position:fixed;inset:0;z-index:1050;background:var(--bg-overlay);opacity:0;visibility:hidden;transition:opacity .5s var(--ease-out-expo),visibility .5s;overflow-y:auto}.nav-overlay.is-open{opacity:1;visibility:visible}
+    .nav-overlay-inner{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--header-height) + var(--space-lg)) var(--space-md) var(--space-lg);max-width:480px;margin:0 auto}
+    .nav-section{padding:var(--space-sm) 0;border-bottom:1px solid var(--border-subtle)}.nav-section:last-of-type{border-bottom:none}
+    .nav-label{display:block;font-family:var(--font-serif);font-size:.75rem;font-weight:500;color:var(--accent-gold);letter-spacing:.12em;padding-bottom:var(--space-xs);margin-bottom:var(--space-xs)}
+    .nav-link{display:block;font-family:var(--font-display);font-size:1.5rem;color:var(--text-primary);padding:.4rem 0;transition:color .3s ease,transform .3s var(--ease-out-expo)}.nav-link:hover{color:var(--accent-gold);transform:translateX(8px)}.nav-link--active{color:var(--accent-gold)}
+    .nav-link--sub{font-size:1.1rem;color:var(--text-secondary);padding-left:1.2rem;position:relative}.nav-link--sub::before{content:'';position:absolute;left:0;top:50%;width:12px;height:1px;background:var(--border-subtle)}.nav-link--sub:hover{color:var(--accent-gold-light)}
+    .nav-footer{margin-top:var(--space-lg);padding-top:var(--space-md);border-top:1px solid var(--border-subtle)}.nav-contact{font-size:.85rem;color:var(--accent-gold);letter-spacing:.08em}
+
+    .page-hero{position:relative;padding-top:calc(var(--header-height) + var(--space-xl));padding-bottom:var(--space-xl);overflow:hidden}
+    .page-hero-bg{position:absolute;inset:0;background-image:url('images/food.png');background-size:cover;background-position:center}
+    .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,26,.5) 0%,rgba(18,18,26,.9) 100%)}
+    .page-hero-content{position:relative;z-index:1;text-align:center}
+    .page-hero-title{font-family:var(--font-display);font-size:clamp(2rem,6vw,3rem);font-weight:700;color:var(--text-primary);letter-spacing:.1em;margin-bottom:var(--space-xs)}
+    .page-hero-sub{font-family:var(--font-serif);font-size:clamp(.85rem,2vw,1rem);color:var(--text-secondary);letter-spacing:.08em}
+
+    .section{padding:var(--space-xl) 0}
+    .section-label{font-family:var(--font-display);font-size:.7rem;font-weight:600;letter-spacing:.25em;color:var(--accent-gold);text-transform:uppercase;margin-bottom:var(--space-xs)}
+    .section-title{font-family:var(--font-serif);font-size:clamp(1.3rem,3.5vw,1.8rem);font-weight:600;color:var(--text-primary);letter-spacing:.05em;margin-bottom:var(--space-md)}
+    .section-intro{font-size:.85rem;color:var(--text-secondary);margin-bottom:var(--space-md);line-height:1.8}
+
+    /* ===== BANNER JUMP LINKS ===== */
+    .banner-links{display:flex;flex-direction:column;gap:var(--space-sm);margin-bottom:var(--space-lg)}
+    .banner-link{position:relative;display:flex;align-items:center;justify-content:center;min-height:100px;border-radius:10px;overflow:hidden;transition:transform .4s var(--ease-out-expo),box-shadow .4s var(--ease-out-expo)}
+    .banner-link:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+    .banner-link-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s var(--ease-out-expo)}
+    .banner-link:hover .banner-link-bg{transform:scale(1.04)}
+    /* Gradient fallback when no image */
+    .banner-link-bg--food{background:linear-gradient(135deg,#2a1a0a 0%,#1a1008 40%,#12121a 100%)}
+    .banner-link-bg--drink{background:linear-gradient(135deg,#0a1a2a 0%,#0d1520 40%,#12121a 100%)}
+    .banner-link-overlay{position:absolute;inset:0;background:rgba(18,18,26,.7);transition:background .3s}
+    .banner-link:hover .banner-link-overlay{background:rgba(18,18,26,.6)}
+    .banner-link-content{position:relative;z-index:1;text-align:center;padding:1.2rem var(--space-md)}
+    .banner-link-label{font-family:var(--font-display);font-size:.6rem;font-weight:600;letter-spacing:.2em;color:var(--accent-gold);text-transform:uppercase;margin-bottom:.2rem}
+    .banner-link-title{font-family:var(--font-serif);font-size:clamp(1.1rem,3vw,1.4rem);font-weight:600;color:var(--text-primary);letter-spacing:.05em}
+    .banner-link-arrow{font-size:.8rem;color:var(--accent-gold);margin-top:.3rem;display:block;transition:transform .3s var(--ease-out-expo)}
+    .banner-link:hover .banner-link-arrow{transform:translateY(3px)}
+
+    /* Food cards with images */
+    .menu-grid{display:flex;flex-direction:column;gap:var(--space-md)}
+    .menu-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;overflow:hidden;transition:border-color .3s}
+    .menu-card:hover{border-color:var(--border-subtle)}
+    .menu-card--featured{border:1px solid rgba(201,168,76,.2);background:linear-gradient(135deg,rgba(201,168,76,.03),var(--bg-card) 40%)}
+    .menu-card-img{width:100%;height:200px;background:var(--bg-secondary);background-size:cover;background-position:center;position:relative}
+    .menu-card-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.8rem;background:linear-gradient(135deg,rgba(201,168,76,.03),var(--bg-secondary))}
+    .menu-card-featured-badge{position:absolute;top:.8rem;right:.8rem;font-size:.65rem;font-weight:500;color:var(--accent-gold);background:rgba(18,18,26,.85);border:1px solid rgba(201,168,76,.25);border-radius:20px;padding:.25rem .7rem;letter-spacing:.08em;backdrop-filter:blur(8px)}
+    .menu-card-body{padding:1.2rem 1.4rem}
+    .menu-card-name{font-family:var(--font-serif);font-size:1.15rem;font-weight:600;color:var(--text-primary);margin-bottom:.2rem}
+    .menu-card--featured .menu-card-name{color:var(--accent-gold-light)}
+    .menu-card-subtitle{font-family:var(--font-serif);font-size:.82rem;color:var(--accent-gold);margin-bottom:.5rem}
+    .menu-card-desc{font-size:.82rem;color:var(--text-secondary);line-height:1.75}
+    .menu-card-desc p{margin-bottom:.3rem}
+    .oueuvre-items{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem}
+    .oueuvre-item{font-size:.72rem;color:var(--text-primary);background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.08);border-radius:16px;padding:.2rem .6rem}
+
+    .allergen-notice{background:linear-gradient(135deg,rgba(210,90,50,.04),var(--bg-card) 60%);border:1px solid rgba(210,90,50,.1);border-left:3px solid var(--accent-coral);border-radius:0 8px 8px 0;padding:1.2rem 1.4rem;margin-top:var(--space-lg)}
+    .allergen-notice-title{font-family:var(--font-serif);font-size:.9rem;font-weight:600;color:var(--accent-coral);margin-bottom:.3rem}
+    .allergen-notice-body{font-size:.8rem;color:var(--text-secondary);line-height:1.7}
+
+    /* ===== DRINK MENU ===== */
+    .drink-section{border-top:1px solid var(--border-subtle);padding-top:var(--space-xl)}
+    .drink-category{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;overflow:hidden;margin-bottom:var(--space-sm);transition:border-color .3s}
+    .drink-category:hover{border-color:var(--border-subtle)}
+    .drink-cat-top{display:flex;align-items:center;gap:.7rem;padding:1rem 1.2rem;border-bottom:1px solid rgba(201,168,76,.04)}
+    .drink-cat-icon{font-size:1.5rem;min-width:2rem;text-align:center}
+    .drink-cat-title{flex:1}
+    .drink-cat-name{font-family:var(--font-serif);font-size:1rem;font-weight:600;color:var(--text-primary);letter-spacing:.03em}
+    .drink-cat-note{font-size:.65rem;color:var(--text-muted);margin-top:.1rem}
+    .drink-cat-badge{font-size:.6rem;color:var(--accent-gold);background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.12);border-radius:14px;padding:.15rem .55rem;white-space:nowrap;align-self:flex-start}
+    .drink-cat-items{padding:.8rem 1.2rem 1rem}
+    .drink-item-grid{display:flex;flex-wrap:wrap;gap:.4rem}
+    .drink-item{font-size:.8rem;color:var(--text-primary);background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.06);border-radius:8px;padding:.4rem .7rem;line-height:1.3;text-align:center}
+    .drink-item--wide{flex:1 1 100%;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+    .drink-style-tags{display:flex;gap:.2rem}
+    .drink-style-tag{font-size:.58rem;color:var(--text-muted);background:rgba(201,168,76,.04);border-radius:10px;padding:.12rem .4rem}
+    .drink-category--limited{background:linear-gradient(135deg,rgba(140,90,200,.05),var(--bg-card) 60%);border:1px solid rgba(140,90,200,.12)}
+    .drink-category--limited .drink-cat-name{color:var(--accent-purple)}
+    .drink-limited-badge{font-size:.6rem;color:var(--accent-purple);background:rgba(140,90,200,.1);border:1px solid rgba(140,90,200,.2);border-radius:14px;padding:.15rem .55rem;white-space:nowrap}
+    .drink-category--limited .drink-item{border-color:rgba(140,90,200,.1);background:rgba(140,90,200,.03)}
+
+    .site-footer{padding:var(--space-md) 0;border-top:1px solid var(--border-subtle);text-align:center}
+    .footer-contact{display:inline-block;font-size:.8rem;color:var(--accent-gold);letter-spacing:.1em;border:1px solid var(--border-subtle);padding:.5rem 1.5rem;transition:all .3s}.footer-contact:hover{border-color:var(--accent-gold)}
+    .fade-in{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease-out-quart),transform .8s var(--ease-out-quart)}.fade-in.is-visible{opacity:1;transform:translateY(0)}
+
+    @media(max-width:768px){:root{--header-height:56px}.menu-card-img{height:160px}.banner-link{min-height:85px}.nav-link{font-size:1.3rem}.nav-link--sub{font-size:1rem}}
+    @media(max-width:480px){.container{padding:0 var(--space-sm)}.menu-card-img{height:140px}.menu-card-body{padding:1rem}.banner-link{min-height:75px}.drink-cat-top{padding:.8rem 1rem}.drink-cat-items{padding:.7rem 1rem .8rem}.drink-item{font-size:.72rem;padding:.3rem .5rem}}
+    body.nav-open{overflow:hidden}
+  </style>
+</head>
+<body>
+  <header class="site-header" id="siteHeader"><div class="header-inner">
+    <a href="index.html" class="header-logo"><span class="logo-sub">農大一中一高</span><span class="logo-main">第2回同窓会</span></a>
+    <button class="hamburger" id="hamburger" aria-label="メニュー"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
+  </div></header>
+
+  <nav class="nav-overlay" id="navOverlay" aria-hidden="true"><div class="nav-overlay-inner">
+    <div class="nav-section"><a href="index.html" class="nav-link">ホーム</a></div>
+    <div class="nav-section"><a href="schedule.html" class="nav-link">Schedule</a></div>
+    <div class="nav-section"><span class="nav-label">長田頭取の野望</span><a href="nagata-about.html" class="nav-link nav-link--sub">ゲーム概要</a><a href="https://script.google.com/macros/s/AKfycbw-4tpXD_Yo1F84Mic6r4Fgl0LugDLakLE9ZD6TGp5JXhSXUFFI2FsfcxO5L-hO_05Otw/exec" target="_blank" class="nav-link nav-link--sub">ゲーム画面</a></div>
+    <div class="nav-section"><a href="food.html" class="nav-link nav-link--active">Food &amp; 懇親会</a></div>
+    <div class="nav-section"><a href="venue.html" class="nav-link">Venue</a></div>
+    <div class="nav-section"><a href="qa.html" class="nav-link">Q&amp;A</a></div>
+    <div class="nav-footer"><a href="https://docs.google.com/forms/d/e/1FAIpQLScaZqsb8PmDiATXvJReIDPr34LZl4RQOk-msbUmN5az5Q-R_g/viewform" target="_blank" rel="noopener" class="nav-contact">お問い合わせ</a></div>
+  </div></nav>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div><div class="page-hero-overlay"></div>
+    <div class="page-hero-content"><div class="container">
+      <h1 class="page-hero-title">Food &amp; 懇親会</h1>
+      <p class="page-hero-sub">立食形式 ・ 和食メニュー ・ 飲み放題</p>
+    </div></div>
+  </section>
+
+  <!-- Intro + Banner Jump Links -->
+  <section class="section fade-in"><div class="container">
+    <p class="section-label">Party Info</p>
+    <h2 class="section-title">懇親会について</h2>
+    <p class="section-intro">16:30〜19:30の約3時間、国際センター1階レストランにて立食形式の懇親会を行います。和食を中心としたメニューと飲み放題をご用意しました。旧友との交流をお楽しみください。</p>
+
+    <!-- Banner Links -->
+    <div class="banner-links">
+      <a href="#menu" class="banner-link">
+        <div class="banner-link-bg banner-link-bg--food" style="/* background-image:url('images/banner-food.png') */"></div>
+        <div class="banner-link-overlay"></div>
+        <div class="banner-link-content">
+          <span class="banner-link-label">Food Menu</span>
+          <span class="banner-link-title">フードメニューを見る</span>
+          <span class="banner-link-arrow">&#9660;</span>
+        </div>
+      </a>
+      <a href="#drinks" class="banner-link">
+        <div class="banner-link-bg banner-link-bg--drink" style="/* background-image:url('images/banner-drink.png') */"></div>
+        <div class="banner-link-overlay"></div>
+        <div class="banner-link-content">
+          <span class="banner-link-label">Drink Menu</span>
+          <span class="banner-link-title">飲み放題メニューはこちら</span>
+          <span class="banner-link-arrow">&#9660;</span>
+        </div>
+      </a>
+    </div>
+  </div></section>
+
+  <!-- ===== FOOD MENU ===== -->
+  <section class="section fade-in" id="menu"><div class="container">
+    <p class="section-label">Food Menu</p>
+    <h2 class="section-title">フードメニュー</h2>
+    <div class="menu-grid">
+
+      <!-- とんかつ -->
+      <div class="menu-card menu-card--featured">
+        <div class="menu-card-img" style="background-image:url('images/food-tonkatsu.png')">
+          <span class="menu-card-featured-badge">一押し</span>
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">とんかつ</h3>
+          <p class="menu-card-subtitle">ヒレカツ &amp; ロースカツ</p>
+          <div class="menu-card-desc">
+            <p>温かいうちにお召し上がりいただくのが一番ですが、冷めてもできるだけおいしく召し上がっていただけるよう調理しています。ぜひご賞味ください。</p>
+            <p>タレでのお召し上がりがおすすめですが、お好みでお塩もご利用ください。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- サラダ -->
+      <div class="menu-card">
+        <div class="menu-card-img" style="background-image:url('images/food-salad.png')"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">サラダ</h3>
+          <div class="menu-card-desc">
+            <p>白醤油ドレッシングでお召し上がりください。お好みで他のドレッシングもご用意しています。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 串もの -->
+      <div class="menu-card">
+        <div class="menu-card-img" style="background-image:url('images/food-kushi.png')"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">串もの</h3>
+          <p class="menu-card-subtitle">ネギマ &amp; つくね</p>
+          <div class="menu-card-desc">
+            <p>築地から仕入れた串です。お一人一本ずつございますので、お好みでお召し上がりください。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 炊き込みご飯 -->
+      <div class="menu-card">
+        <div class="menu-card-img" style="/* background-image:url('images/food-gohan.png') */">
+          <div class="menu-card-img-placeholder">🍚</div>
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">炊き込みご飯</h3>
+          <div class="menu-card-desc">
+            <p>当店自慢の和風だしをもとに、丁寧にだしを取って炊き上げた炊き込みご飯です。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- オードブル -->
+      <div class="menu-card">
+        <div class="menu-card-img" style="/* background-image:url('images/food-oueuvre.png') */">
+          <div class="menu-card-img-placeholder">🍽️</div>
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">オードブルプレート</h3>
+          <p class="menu-card-subtitle">約5人前 × 20パック（各テーブルに配置）</p>
+          <div class="menu-card-desc">
+            <p>各テーブルにオードブルプレートをご用意しています。お好きなものをお取りください。</p>
+          </div>
+          <div class="oueuvre-items">
+            <span class="oueuvre-item">タラの南蛮漬け</span>
+            <span class="oueuvre-item">メンチコロッケ</span>
+            <span class="oueuvre-item">野菜スティック</span>
+            <span class="oueuvre-item">ポテトフライ</span>
+            <span class="oueuvre-item">卵焼き</span>
+            <span class="oueuvre-item">枝豆</span>
+            <span class="oueuvre-item">えびフライ</span>
+          </div>
+          <p style="font-size:.7rem;color:var(--text-muted);margin-top:.5rem">野菜スティック: パプリカ・きゅうり・にんじん 等</p>
+        </div>
+      </div>
+
+      <!-- スナック -->
+      <div class="menu-card">
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">その他スナック菓子</h3>
+          <div class="menu-card-desc">
+            <p>お酒のおつまみとして各種スナック菓子をご用意しています。前半戦（レクリエーション）の交流会でお出ししたものの残りもこちらでお出しします。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="allergen-notice">
+      <h3 class="allergen-notice-title">アレルギーについて</h3>
+      <p class="allergen-notice-body">お食事に関してはアレルギー情報を可能な範囲で表示いたしますが、最終的にはご自身の判断でお召し上がりください。アレルギーをお持ちの方は、少しでも怪しいと感じるものはお控えいただくようお願いいたします。</p>
+    </div>
+  </div></section>
+
+  <!-- ===== DRINK MENU ===== -->
+  <section class="section drink-section fade-in" id="drinks"><div class="container">
+    <p class="section-label">Drink Menu</p>
+    <h2 class="section-title">飲み放題メニュー</h2>
+
+    <div class="drink-category">
+      <div class="drink-cat-top"><span class="drink-cat-icon">🍺</span><div class="drink-cat-title"><p class="drink-cat-name">ビール</p></div><span class="drink-cat-badge">セルフサービス</span></div>
+      <div class="drink-cat-items"><div class="drink-item-grid"><span class="drink-item">ハイネケン</span></div></div>
+    </div>
+
+    <div class="drink-category">
+      <div class="drink-cat-top"><span class="drink-cat-icon">🍷</span><div class="drink-cat-title"><p class="drink-cat-name">ワイン</p></div><span class="drink-cat-badge">セルフサービス</span></div>
+      <div class="drink-cat-items"><div class="drink-item-grid"><span class="drink-item">赤ワイン</span><span class="drink-item">白ワイン</span><span class="drink-item">スパークリングワイン</span></div></div>
+    </div>
+
+    <div class="drink-category">
+      <div class="drink-cat-top"><span class="drink-cat-icon">🍑</span><div class="drink-cat-title"><p class="drink-cat-name">梅酒・果実酒</p></div></div>
+      <div class="drink-cat-items"><div class="drink-item-grid">
+        <span class="drink-item drink-item--wide">梅酒<span class="drink-style-tags"><span class="drink-style-tag">ソーダ</span><span class="drink-style-tag">水割り</span><span class="drink-style-tag">ロック</span></span></span>
+        <span class="drink-item drink-item--wide">桃酒<span class="drink-style-tags"><span class="drink-style-tag">ソーダ</span><span class="drink-style-tag">水割り</span><span class="drink-style-tag">ロック</span></span></span>
+      </div></div>
+    </div>
+
+    <div class="drink-category">
+      <div class="drink-cat-top"><span class="drink-cat-icon">🍶</span><div class="drink-cat-title"><p class="drink-cat-name">焼酎</p></div></div>
+      <div class="drink-cat-items"><div class="drink-item-grid">
+        <span class="drink-item drink-item--wide">芋焼酎<span class="drink-style-tags"><span class="drink-style-tag">ソーダ</span><span class="drink-style-tag">水割り</span><span class="drink-style-tag">ロック</span></span></span>
+      </div></div>
+    </div>
+
+    <div class="drink-category">
+      <div class="drink-cat-top"><span class="drink-cat-icon">🍋</span><div class="drink-cat-title"><p class="drink-cat-name">サワー・ハイボール</p></div></div>
+      <div class="drink-cat-items"><div class="drink-item-grid">
+        <span class="drink-item">レモンサワー</span><span class="drink-item">ハイボール</span><span class="drink-item">コークハイ</span>
+        <span class="drink-item">緑茶ハイ</span><span class="drink-item">蕎麦茶ハイ</span><span class="drink-item">プレーンサワー</span>
+      </div></div>
+    </div>
+
+    <div class="drink-category">
+      <div class="drink-cat-top"><span class="drink-cat-icon">🥤</span><div class="drink-cat-title"><p class="drink-cat-name">ソフトドリンク</p></div></div>
+      <div class="drink-cat-items"><div class="drink-item-grid">
+        <span class="drink-item">お水</span><span class="drink-item">コーラ</span><span class="drink-item">オレンジジュース</span>
+        <span class="drink-item">カルピス</span><span class="drink-item">緑茶</span><span class="drink-item">蕎麦茶</span>
+      </div></div>
+    </div>
+
+    <div class="drink-category drink-category--limited">
+      <div class="drink-cat-top"><span class="drink-cat-icon">✨</span><div class="drink-cat-title"><p class="drink-cat-name">LIMITED</p><p class="drink-cat-note">数量限定・なくなり次第終了</p></div><span class="drink-limited-badge">数量限定</span></div>
+      <div class="drink-cat-items"><div class="drink-item-grid">
+        <span class="drink-item" style="flex:1 1 100%">エシカルスピリッツ クラフトジン ソーダ</span>
+        <span class="drink-item" style="flex:1 1 100%">伊良コーラ クラフトコーラ</span>
+      </div></div>
+    </div>
+  </div></section>
+
+  <footer class="site-footer"><div class="container">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScaZqsb8PmDiATXvJReIDPr34LZl4RQOk-msbUmN5az5Q-R_g/viewform" target="_blank" rel="noopener" class="footer-contact">お問い合わせ</a>
+  </div></footer>
+
+  <script>
+    var h=document.getElementById('hamburger'),n=document.getElementById('navOverlay');h.addEventListener('click',function(){var o=h.classList.toggle('is-active');n.classList.toggle('is-open',o);n.setAttribute('aria-hidden',!o);h.setAttribute('aria-expanded',o);document.body.classList.toggle('nav-open',o)});n.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){h.classList.remove('is-active');n.classList.remove('is-open');n.setAttribute('aria-hidden','true');h.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open')})});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('is-open'))h.click()});
+    var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target)}})},{rootMargin:'0px 0px -60px 0px',threshold:.1});document.querySelectorAll('.fade-in').forEach(function(el){obs.observe(el)});
+    window.addEventListener('scroll',function(){document.getElementById('siteHeader').style.background=window.scrollY>80?'rgba(18,18,26,.92)':'rgba(18,18,26,.6)'},{passive:true});
+  </script>
+</body>
+</html>
