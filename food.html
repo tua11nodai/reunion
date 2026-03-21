@@ -83,6 +83,20 @@
     .menu-card-desc p{margin-bottom:.3rem}
     .oueuvre-items{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem}
     .oueuvre-item{font-size:.72rem;color:var(--text-primary);background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.08);border-radius:16px;padding:.2rem .6rem}
+    .menu-ingredients{margin-top:.6rem;padding-top:0;border-top:none;max-height:0;overflow:hidden;transition:max-height .4s ease,padding-top .4s ease}
+    .menu-ingredients.open{max-height:600px;padding-top:.5rem;border-top:1px solid rgba(201,168,76,.06)}
+    .menu-ingredients-title{font-size:.65rem;font-weight:500;color:var(--text-muted);letter-spacing:.05em;margin-bottom:.3rem}
+    .allergen-toggle{display:flex;align-items:center;gap:.4rem;margin-top:.6rem;padding:.45rem .7rem;background:rgba(210,90,50,.04);border:1px solid rgba(210,90,50,.1);border-radius:6px;cursor:pointer;transition:all .2s;user-select:none;-webkit-tap-highlight-color:transparent}
+    .allergen-toggle:hover{background:rgba(210,90,50,.08);border-color:rgba(210,90,50,.2)}
+    .allergen-toggle-icon{font-size:.7rem;color:var(--accent-coral);transition:transform .3s}
+    .allergen-toggle.open .allergen-toggle-icon{transform:rotate(90deg)}
+    .allergen-toggle-text{font-size:.7rem;color:var(--accent-coral);font-weight:500;letter-spacing:.03em}
+    .ingredient-list{list-style:none;padding:0}
+    .ingredient-item{font-size:.72rem;color:var(--text-secondary);line-height:1.5;padding:.15rem 0;display:flex;justify-content:space-between;align-items:baseline;gap:.4rem;border-bottom:1px solid rgba(201,168,76,.03)}
+    .ingredient-item:last-child{border-bottom:none}
+    .ingredient-name{flex-shrink:0}
+    .allergen-tags{display:flex;flex-wrap:wrap;gap:.2rem;justify-content:flex-end}
+    .allergen-tag{font-size:.58rem;color:var(--accent-coral);background:rgba(210,90,50,.08);border:1px solid rgba(210,90,50,.12);border-radius:10px;padding:.08rem .35rem;white-space:nowrap;line-height:1.3}
 
     .allergen-notice{background:linear-gradient(135deg,rgba(210,90,50,.04),var(--bg-card) 60%);border:1px solid rgba(210,90,50,.1);border-left:3px solid var(--accent-coral);border-radius:0 8px 8px 0;padding:1.2rem 1.4rem;margin-top:var(--space-lg)}
     .allergen-notice-title{font-family:var(--font-serif);font-size:.9rem;font-weight:600;color:var(--accent-coral);margin-bottom:.3rem}
@@ -187,8 +201,16 @@
           <h3 class="menu-card-name">とんかつ</h3>
           <p class="menu-card-subtitle">ヒレカツ &amp; ロースカツ</p>
           <div class="menu-card-desc">
-            <p>温かいうちにお召し上がりいただくのが一番ですが、冷めてもできるだけおいしく召し上がっていただけるよう調理しています。ぜひご賞味ください。</p>
-            <p>タレでのお召し上がりがおすすめですが、お好みでお塩もご利用ください。</p>
+            <p>温かいうちにお召し上がりいただくのが一番ですが、冷めてもおいしくいただけるよう調理しています。タレでのお召し上がりがおすすめですが、お好みでお塩もご利用ください。</p>
+          </div>
+          <div class="allergen-toggle" onclick="toggleAllergen(this)"><span class="allergen-toggle-icon">▶</span><span class="allergen-toggle-text">メニュー詳細・アレルギー情報</span></div><div class="menu-ingredients">
+            <p class="menu-ingredients-title">内容・アレルギー情報</p>
+            <ul class="ingredient-list">
+              <li class="ingredient-item"><span class="ingredient-name">ロースカツ</span><span class="allergen-tags"><span class="allergen-tag">豚</span><span class="allergen-tag">小麦</span><span class="allergen-tag">卵</span><span class="allergen-tag">豚ラード</span><span class="allergen-tag">グルテン</span></span></li>
+              <li class="ingredient-item"><span class="ingredient-name">ヒレカツ</span><span class="allergen-tags"><span class="allergen-tag">豚</span><span class="allergen-tag">小麦</span><span class="allergen-tag">卵</span><span class="allergen-tag">豚ラード</span><span class="allergen-tag">グルテン</span></span></li>
+              <li class="ingredient-item"><span class="ingredient-name">ソース</span><span class="allergen-tags"><span class="allergen-tag">小麦</span><span class="allergen-tag">大豆</span><span class="allergen-tag">鶏肉</span><span class="allergen-tag">りんご</span><span class="allergen-tag">ネギ</span></span></li>
+              <li class="ingredient-item"><span class="ingredient-name">タレカツタレ</span><span class="allergen-tags"><span class="allergen-tag">小麦</span><span class="allergen-tag">大豆</span><span class="allergen-tag">カツオ</span><span class="allergen-tag">昆布</span></span></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -199,7 +221,18 @@
         <div class="menu-card-body">
           <h3 class="menu-card-name">サラダ</h3>
           <div class="menu-card-desc">
-            <p>白醤油ドレッシングでお召し上がりください。お好みで他のドレッシングもご用意しています。</p>
+            <p>白醤油ドレッシングでお召し上がりください。ドレッシングはマヨネーズ抜きで提供予定です。</p>
+          </div>
+          <div class="allergen-toggle" onclick="toggleAllergen(this)"><span class="allergen-toggle-icon">▶</span><span class="allergen-toggle-text">メニュー詳細・アレルギー情報</span></div><div class="menu-ingredients">
+            <p class="menu-ingredients-title">内容・アレルギー情報</p>
+            <ul class="ingredient-list">
+              <li class="ingredient-item"><span class="ingredient-name">グリーンカール</span></li>
+              <li class="ingredient-item"><span class="ingredient-name">サニーレタス</span></li>
+              <li class="ingredient-item"><span class="ingredient-name">かいわれ</span></li>
+              <li class="ingredient-item"><span class="ingredient-name">水菜</span></li>
+              <li class="ingredient-item"><span class="ingredient-name">梅ジャコ</span><span class="allergen-tags"><span class="allergen-tag">小エビ</span><span class="allergen-tag">魚介類</span></span></li>
+              <li class="ingredient-item"><span class="ingredient-name">ドレッシング</span><span class="allergen-tags"><span class="allergen-tag">小麦</span><span class="allergen-tag">大豆</span></span></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -209,54 +242,61 @@
         <div class="menu-card-img" style="background-image:url('images/food-kushi.png')"></div>
         <div class="menu-card-body">
           <h3 class="menu-card-name">串もの</h3>
-          <p class="menu-card-subtitle">ネギマ &amp; つくね</p>
+          <p class="menu-card-subtitle">モモ &amp; つくね</p>
           <div class="menu-card-desc">
             <p>築地から仕入れた串です。お一人一本ずつございますので、お好みでお召し上がりください。</p>
+          </div>
+          <div class="allergen-toggle" onclick="toggleAllergen(this)"><span class="allergen-toggle-icon">▶</span><span class="allergen-toggle-text">メニュー詳細・アレルギー情報</span></div><div class="menu-ingredients">
+            <p class="menu-ingredients-title">内容・アレルギー情報</p>
+            <ul class="ingredient-list">
+              <li class="ingredient-item"><span class="ingredient-name">モモ</span><span class="allergen-tags"><span class="allergen-tag">鶏肉</span></span></li>
+              <li class="ingredient-item"><span class="ingredient-name">つくね</span><span class="allergen-tags"><span class="allergen-tag">小麦</span><span class="allergen-tag">卵</span><span class="allergen-tag">鶏肉</span><span class="allergen-tag">大豆</span><span class="allergen-tag">でんぷん</span><span class="allergen-tag">豚ラード</span><span class="allergen-tag">グルテン</span></span></li>
+            </ul>
           </div>
         </div>
       </div>
 
       <!-- 炊き込みご飯 -->
       <div class="menu-card">
-        <div class="menu-card-img" style="background-image:url('images/food-gohan.png')">
-        </div>
+        <div class="menu-card-img" style="background-image:url('images/food-gohan.png')"></div>
         <div class="menu-card-body">
           <h3 class="menu-card-name">炊き込みご飯</h3>
           <div class="menu-card-desc">
             <p>当店自慢の和風だしをもとに、丁寧にだしを取って炊き上げた炊き込みご飯です。</p>
+          </div>
+          <div class="allergen-toggle" onclick="toggleAllergen(this)"><span class="allergen-toggle-icon">▶</span><span class="allergen-toggle-text">メニュー詳細・アレルギー情報</span></div><div class="menu-ingredients">
+            <p class="menu-ingredients-title">内容・アレルギー情報</p>
+            <ul class="ingredient-list">
+              <li class="ingredient-item"><span class="ingredient-name">炊き込みご飯</span><span class="allergen-tags"><span class="allergen-tag">小麦</span><span class="allergen-tag">大豆</span><span class="allergen-tag">魚介</span><span class="allergen-tag">乳製品</span></span></li>
+              <li class="ingredient-item"><span class="ingredient-name">桜エビ（トッピング）</span><span class="allergen-tags"><span class="allergen-tag">エビ</span></span></li>
+              <li class="ingredient-item"><span class="ingredient-name">菜の花（トッピング）</span></li>
+            </ul>
           </div>
         </div>
       </div>
 
       <!-- オードブル -->
       <div class="menu-card">
-        <div class="menu-card-img" style="background-image:url('images/food-oueuvre.png')">
-        </div>
+        <div class="menu-card-img" style="background-image:url('images/food-oueuvre.png')"></div>
         <div class="menu-card-body">
           <h3 class="menu-card-name">オードブルプレート</h3>
           <p class="menu-card-subtitle">約5人前 × 20パック（各テーブルに配置）</p>
           <div class="menu-card-desc">
             <p>各テーブルにオードブルプレートをご用意しています。お好きなものをお取りください。</p>
           </div>
-          <div class="oueuvre-items">
-            <span class="oueuvre-item">タラの南蛮漬け</span>
-            <span class="oueuvre-item">メンチコロッケ</span>
-            <span class="oueuvre-item">野菜スティック</span>
-            <span class="oueuvre-item">ポテトフライ</span>
-            <span class="oueuvre-item">卵焼き</span>
-            <span class="oueuvre-item">枝豆</span>
-            <span class="oueuvre-item">えびフライ</span>
-          </div>
-          <p style="font-size:.7rem;color:var(--text-muted);margin-top:.5rem">野菜スティック: パプリカ・きゅうり・にんじん 等</p>
-        </div>
-      </div>
-
-      <!-- スナック -->
-      <div class="menu-card">
-        <div class="menu-card-body">
-          <h3 class="menu-card-name">その他スナック菓子</h3>
-          <div class="menu-card-desc">
-            <p>お酒のおつまみとして各種スナック菓子をご用意しています。前半戦（レクリエーション）の交流会でお出ししたものの残りもこちらでお出しします。</p>
+          <div class="allergen-toggle" onclick="toggleAllergen(this)"><span class="allergen-toggle-icon">▶</span><span class="allergen-toggle-text">メニュー詳細・アレルギー情報</span></div><div class="menu-ingredients">
+            <p class="menu-ingredients-title">内容・アレルギー情報</p>
+            <ul class="ingredient-list">
+              <li class="ingredient-item"><span class="ingredient-name">野菜スティック（パプリカ・きゅうり・大根）</span></li>
+              <li class="ingredient-item"><span class="ingredient-name">特製味噌（ディップ）</span><span class="allergen-tags"><span class="allergen-tag">小麦</span><span class="allergen-tag">大豆</span><span class="allergen-tag">りんご</span><span class="allergen-tag">ニンニク</span><span class="allergen-tag">胡麻</span><span class="allergen-tag">酒</span></span></li>
+              <li class="ingredient-item"><span class="ingredient-name">卵焼き</span><span class="allergen-tags"><span class="allergen-tag">卵</span></span></li>
+              <li class="ingredient-item"><span class="ingredient-name">枝豆</span><span class="allergen-tags"><span class="allergen-tag">大豆</span></span></li>
+              <li class="ingredient-item"><span class="ingredient-name">ポテトフライ</span><span class="allergen-tags"><span class="allergen-tag">豚ラード</span></span></li>
+              <li class="ingredient-item"><span class="ingredient-name">エビフライ</span><span class="allergen-tags"><span class="allergen-tag">エビ</span><span class="allergen-tag">小麦</span><span class="allergen-tag">卵</span><span class="allergen-tag">豚ラード</span><span class="allergen-tag">グルテン</span></span></li>
+              <li class="ingredient-item"><span class="ingredient-name">タルタルソース</span><span class="allergen-tags"><span class="allergen-tag">卵</span><span class="allergen-tag">乳製品</span><span class="allergen-tag">大豆</span><span class="allergen-tag">りんご</span></span></li>
+              <li class="ingredient-item"><span class="ingredient-name">メンチカツ</span><span class="allergen-tags"><span class="allergen-tag">小麦</span><span class="allergen-tag">卵</span><span class="allergen-tag">豚ラード</span><span class="allergen-tag">グルテン</span></span></li>
+              <li class="ingredient-item"><span class="ingredient-name">タラ南蛮漬け</span><span class="allergen-tags"><span class="allergen-tag">魚介類</span><span class="allergen-tag">小麦</span><span class="allergen-tag">唐辛子</span><span class="allergen-tag">ネギ</span><span class="allergen-tag">乳製品</span></span></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -323,138 +363,7 @@
       </div></div>
     </div>
   </div></section>
-<!-- ========================================
-  アフターアンケート誘導バナー
-  各ページの </main> 直前 or フッター直前に貼り付けてください
-  ======================================== -->
-<section class="survey-banner" id="survey-banner">
-  <div class="survey-banner__bg">
-    <img src="images/food.png" alt="" class="survey-banner__img" loading="lazy">
-  </div>
-  <div class="survey-banner__overlay"></div>
-  <div class="survey-banner__content">
-    <p class="survey-banner__label">After Survey</p>
-    <h2 class="survey-banner__title">同窓会のアフターアンケートは<br>こちらから</h2>
-    <p class="survey-banner__desc">皆さまの率直なご感想をお聞かせください。<br>今後の同窓会をより良くするために活用いたします。</p>
-    <a href="survey.html" class="survey-banner__btn">アンケートに回答する</a>
-  </div>
-</section>
 
-<style>
-  /* === アンケート誘導バナー === */
-  .survey-banner{
-    position:relative;
-    width:100%;
-    min-height:320px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-    margin-top:64px;
-  }
-
-  /* 背景画像（ぼかし強め・拡大） */
-  .survey-banner__bg{
-    position:absolute;
-    inset:-20px;
-    z-index:0;
-  }
-  .survey-banner__img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transform:scale(2);
-    transform-origin:center center;
-    filter:blur(28px) saturate(0.6);
-  }
-
-  /* 暗めオーバーレイ */
-  .survey-banner__overlay{
-    position:absolute;
-    inset:0;
-    z-index:1;
-    background:linear-gradient(
-      180deg,
-      rgba(18,18,26,0.75) 0%,
-      rgba(18,18,26,0.88) 50%,
-      rgba(18,18,26,0.95) 100%
-    );
-  }
-
-  /* コンテンツ */
-  .survey-banner__content{
-    position:relative;
-    z-index:2;
-    text-align:center;
-    padding:48px 24px;
-    max-width:500px;
-  }
-
-  .survey-banner__label{
-    font-family:'Cormorant Garamond','Noto Serif JP',serif;
-    font-size:.8rem;
-    letter-spacing:.15em;
-    color:#c9a84c;
-    text-transform:uppercase;
-    margin-bottom:12px;
-  }
-
-  .survey-banner__title{
-    font-family:'Noto Serif JP',serif;
-    font-size:1.25rem;
-    font-weight:600;
-    color:#eae7e0;
-    line-height:1.7;
-    margin-bottom:16px;
-  }
-
-  .survey-banner__desc{
-    font-family:'Noto Sans JP',sans-serif;
-    font-size:.82rem;
-    font-weight:300;
-    color:#a09b92;
-    line-height:1.9;
-    margin-bottom:28px;
-  }
-
-  .survey-banner__btn{
-    display:inline-block;
-    padding:14px 40px;
-    background:linear-gradient(135deg,#c9a84c,#dfc06a);
-    color:#12121a;
-    font-family:'Noto Serif JP',serif;
-    font-size:.95rem;
-    font-weight:600;
-    text-decoration:none;
-    border-radius:8px;
-    transition:opacity .25s,transform .15s;
-    -webkit-tap-highlight-color:transparent;
-  }
-  .survey-banner__btn:active{
-    transform:scale(.97);
-  }
-  .survey-banner__btn:hover{
-    opacity:.9;
-  }
-
-  /* レスポンシブ */
-  @media(max-width:480px){
-    .survey-banner{
-      min-height:280px;
-      margin-top:48px;
-    }
-    .survey-banner__title{
-      font-size:1.1rem;
-    }
-    .survey-banner__content{
-      padding:36px 20px;
-    }
-    .survey-banner__btn{
-      padding:13px 32px;
-      font-size:.9rem;
-    }
-  }
-</style>
   <footer class="site-footer"><div class="container">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLScaZqsb8PmDiATXvJReIDPr34LZl4RQOk-msbUmN5az5Q-R_g/viewform" target="_blank" rel="noopener" class="footer-contact">お問い合わせ</a>
   </div></footer>
@@ -463,6 +372,7 @@
     var h=document.getElementById('hamburger'),n=document.getElementById('navOverlay');h.addEventListener('click',function(){var o=h.classList.toggle('is-active');n.classList.toggle('is-open',o);n.setAttribute('aria-hidden',!o);h.setAttribute('aria-expanded',o);document.body.classList.toggle('nav-open',o)});n.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){h.classList.remove('is-active');n.classList.remove('is-open');n.setAttribute('aria-hidden','true');h.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open')})});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('is-open'))h.click()});
     var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target)}})},{rootMargin:'0px 0px -60px 0px',threshold:.1});document.querySelectorAll('.fade-in').forEach(function(el){obs.observe(el)});
     window.addEventListener('scroll',function(){document.getElementById('siteHeader').style.background=window.scrollY>80?'rgba(18,18,26,.92)':'rgba(18,18,26,.6)'},{passive:true});
+    function toggleAllergen(btn){var panel=btn.nextElementSibling;var isOpen=panel.classList.toggle('open');btn.classList.toggle('open',isOpen)}
   </script>
 </body>
 </html>
